@@ -1,0 +1,48 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Bewitchery BP",
+    "description": "An add-on based on magical creatures, spells and rituals",
+    "uuid": "02839727-4ecf-4537-9c42-554866f052c3",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      16,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "description": "_",
+      "uuid": "7d70f3fc-47fc-4606-8155-10c57726bf19",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "4baacb04-8d21-4e31-a951-98877e45cf4a",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "capabilities": {
+    "experimental_custom_ui": true,
+    "chemistry": false
+  },
+  "metadata": {
+    "authors": "SpicyShelduck",
+    "url": " "
+  }
+}
