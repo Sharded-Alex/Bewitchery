@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "The Coven of Tomes",
+              "pages": [
+                "§c[Resist Fire]§1\n\nThose who dance in the burning light of the Sun should have no need to fear fire. However, in cases where fire brings true harm, §cResist Fire§1 can be used to nullify its holy and destructive burn.§r",
+                "§1Element: §cSolar Magick§1\nAffinity Req: 15%\n\nSpell Combination:\n\n1) §cSolar§1\n2) §cSolar§1\n3) §2Earth§1§r"
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§cResist Fire§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

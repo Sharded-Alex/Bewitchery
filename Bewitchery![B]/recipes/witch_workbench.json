@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bw:witch_workbench"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "$$",
+      "##",
+      "##"
+    ],
+    "key": {
+      "$": {
+        "item": "minecraft:magenta_wool"
+      },
+      "#": {
+        "item": "minecraft:planks"
+      }
+    },
+    "result": {
+      "item": "bw:bewitched_altar"
+    }
+  }
+}

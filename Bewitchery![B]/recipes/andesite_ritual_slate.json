@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:andesite_ritual_slate"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stone",
+        "data": 6
+      }
+    },
+    "result": {
+      "item": "bw:runic_slate"
+    }
+  }
+}

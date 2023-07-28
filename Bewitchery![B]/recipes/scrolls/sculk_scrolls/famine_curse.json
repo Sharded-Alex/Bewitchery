@@ -1,0 +1,40 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:craft_curse_famine"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "IEI",
+      "Q#S"
+    ],
+    "key": {
+      "#": {
+        "item": "bw:blank_scroll"
+      },
+      "Q": {
+        "item": "minecraft:feather"
+      },
+      "I": {
+        "item": "minecraft:rotten_flesh"
+      },
+      "E": {
+        "item": "minecraft:echo_shard"
+      },
+      "S": {
+        "item": "bw:sculk_vial"
+      }
+    },
+    "result": [
+      {
+        "item": "bw:cursed_scroll.famine"
+      },
+      {
+        "item": "bw:glass_vial"
+      }
+    ]
+  }
+}

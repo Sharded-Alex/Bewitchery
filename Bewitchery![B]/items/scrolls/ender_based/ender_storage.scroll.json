@@ -1,0 +1,72 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:ender_storage_scroll"
+		},
+		"components": {
+			"minecraft:max_stack_size": 16,
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.bewitched_scrolls"
+			},
+			"minecraft:hand_equipped": false,
+			"minecraft:foil": false,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "release_spell"
+				}
+			},
+      "minecraft:cooldown":{
+        "category":"bw:ender_storage",
+        "duration": 30.5
+      },
+			"minecraft:icon": {
+				"texture": "ender_scroll"
+			}
+		},
+		"events": {
+			"release_spell": {
+			  "sequence": [
+			    {
+			      "condition": "q.scoreboard('bw:eChest_CD') == 0 && q.scoreboard('bw:enderAff') >= 45 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+			      "run_command": {
+			        "command": [
+			          "playsound mob.endermite.say @a[r=6] ~~~ 0.8",
+			          "scoreboard players set @s bw:eChest_CD 600",
+			          "summon bw:ender_chest_bug ~~~",
+		            "setblock ~~~ ender_chest 0 replace",
+		            "particle bw:ender_spellcast ~~~"
+			        ]
+			      },
+			      "decrement_stack": {}
+			    },
+			    {
+			      "condition": "q.scoreboard('bw:eChest_CD') > 0 && q.scoreboard('bw:enderAff') >= 45 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+			      "run_command": {
+			        "command": [
+			          "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}"
+			        ]
+			      }
+			    },
+			    {
+			      "condition": "q.scoreboard('bw:eChest_CD') >= 0 && q.scoreboard('bw:enderAff') < 45",
+			      "run_command": {
+			        "command": [
+			          "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §5Ender Magick§r isn't high enough to cast the spell inscribed on this scroll. [45.0%]\"}]}"
+			        ]
+			      }
+			    },
+			    {
+			      "condition":"!((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) && !query.biome_has_any_tag('the_end') && !q.scoreboard('bw:Ender') == 1",
+			      "run_command": {
+			        "command": [
+			          "tellraw @s {\"rawtext\":[{\"text\":\"§5There is not enough Ender Essence to cast the spell inscribed on this scroll.§r\"}]}"
+			        ]
+			      }
+			    }
+			  ]
+			}
+		}
+	}
+}

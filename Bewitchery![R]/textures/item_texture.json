@@ -1,0 +1,269 @@
+{
+   "resource_pack_name" : "vanilla",
+   "texture_data" : {
+      "white_chalk" : {
+         "textures" : "textures/items/chalk/white_chalk"
+      },
+      "yellow_chalk" : {
+         "textures" : "textures/items/chalk/yellow_chalk"
+      },
+      "purple_chalk" : {
+         "textures" : "textures/items/chalk/purple_chalk"
+      },
+      "red_chalk" : {
+         "textures" : "textures/items/chalk/red_chalk"
+      },
+      "sky_essence" : {
+         "textures" : "textures/items/essence/storm_quartz"
+      },
+      "earth_essence_crystal" : {
+         "textures" : "textures/items/essence/earth_gem"
+      },
+      "solar_essence" : {
+         "textures" : "textures/items/essence/solar_opal"
+      },
+      "lunar_essence" : {
+         "textures" : "textures/items/essence/water_opal"
+      },
+      "ender_essence" : {
+         "textures" : "textures/items/essence/enderphosiderite"
+      },
+      "ender_compass" : {
+         "textures" : "textures/items/tools/ender_compass"
+      },
+      "glass_flask" : {
+         "textures" : "textures/items/flasks/glass_flask"
+      },
+      "earth_flask" : {
+         "textures" : "textures/items/flasks/overworld_mana"
+      },
+      "ender_flask" : {
+         "textures" : "textures/items/flasks/contained_void"
+      },
+      "solar_flask" : {
+         "textures" : "textures/items/flasks/solar_vial"
+      },
+      "sky_flask" : {
+         "textures" : "textures/items/flasks/stormy_mana"
+      },
+      "lunar_flask" : {
+         "textures" : "textures/items/flasks/moon_water"
+      },
+      "sculk_flask" : {
+         "textures" : "textures/items/flasks/sculk_vial"
+      },
+      "xp_flask" : {
+         "textures" : "textures/items/flasks/xp_vial"
+      },
+      "emerald_dust" : {
+         "textures" : "textures/items/dusts/emerald_dust"
+      },
+      "lunar_dust" : {
+         "textures" : "textures/items/dusts/lunar_dust"
+      },
+      "solar_dust" : {
+         "textures" : "textures/items/dusts/solar_dust"
+      },
+      "amethyst_dust" : {
+         "textures" : "textures/items/dusts/ender_dust"
+      },
+      "sky_dust" : {
+         "textures" : "textures/items/dusts/sky_dust"
+      },
+      "calcite_dust" : {
+         "textures" : "textures/items/dusts/calcite_dust"
+      },
+      "red_calcite_dust" : {
+         "textures" : "textures/items/dusts/red_chalk"
+      },
+      "coal_dust" : {
+         "textures" : "textures/items/dusts/coal_dust"
+      },
+      "bowled_blue_orchid" : {
+         "textures" : "textures/items/dusts/azure_bluet_dust"
+      },
+      "bowled_cornflower" : {
+         "textures" : "textures/items/dusts/cornflower_dust"
+      },
+      "bowled_dandelion" : {
+         "textures" : "textures/items/dusts/dandelion_dust"
+      },
+      "bowled_oxeye_daisy" : {
+         "textures" : "textures/items/dusts/oxeye_daisy_dust"
+      },
+      "bowled_poppy" : {
+         "textures" : "textures/items/dusts/poppy_dust"
+      },
+      "bowled_fern" : {
+         "textures" : "textures/items/dusts/fern_dust"
+      },
+      "natural_ash" : {
+         "textures" : "textures/items/dusts/natural_ash"
+      },
+      "obsidian_dust" : {
+         "textures" : "textures/items/dusts/obsidian_dust"
+      },
+      "mortar_pestle" : {
+         "textures" : "textures/items/tools/mortar_and_pestle"
+      },
+      "athame" : {
+         "textures" : "textures/items/tools/witch_athame"
+      },
+      "gold_spellbook" : {
+         "textures" : "textures/items/spellbooks/gold_spellbook"
+      },
+      "strange_spellbook" : {
+         "textures" : "textures/items/spellbooks/strange_spellbook"
+      },
+      "witch_guide" : {
+         "textures" : "textures/items/spellbooks/bewitched_book"
+      },
+      "agility_vial" : {
+         "textures" : "textures/items/potions/agility_vial"
+      },
+      "defence_vial" : {
+         "textures" : "textures/items/potions/defence_vial"
+      },
+      "glass_vial" : {
+         "textures" : "textures/items/potions/glass_vial"
+      },
+      "haste_vial" : {
+         "textures" : "textures/items/potions/haste_vial"
+      },
+      "levitation_vial" : {
+         "textures" : "textures/items/potions/levitation_vial"
+      },
+      "night_stalking_vial" : {
+         "textures" : "textures/items/potions/night_stalking_vial"
+      },
+      "vitality_vial" : {
+         "textures" : "textures/items/potions/vitality_vial"
+      },
+      "water_vial" : {
+         "textures" : "textures/items/potions/water_vial"
+      },
+      "blood_vial" : {
+         "textures" : "textures/items/potions/blood_vial"
+      },
+      "elixir_conduit" : {
+         "textures" : "textures/items/potions/elixir_conduit"
+      },
+      "elixir_forest" : {
+         "textures" : "textures/items/potions/elixir_forest"
+      },
+      "holy_elixir" : {
+         "textures" : "textures/items/potions/holy_elixir"
+      },
+      "soul_bottle" : {
+         "textures" : "textures/items/potions/soul_bottle"
+      },
+      "empty_vial" : {
+         "textures" : "textures/items/potions/glass_vial"
+      },
+      "mundane_wand" : {
+         "textures" : "textures/items/wands/mundane_wand"
+      },
+      "amethyst_wand" : {
+         "textures" : "textures/items/wands/amethyst_wand"
+      },
+      "soul_fragment" : {
+         "textures" : "textures/items/talismans/soul_fragment"
+      },
+      "torn_solar_page" : {
+         "textures" : "textures/items/tools/torn_pages/torn_solar_page"
+      },
+      "torn_lunar_page" : {
+         "textures" : "textures/items/tools/torn_pages/torn_lunar_page"
+      },
+      "torn_earth_page" : {
+         "textures" : "textures/items/tools/torn_pages/torn_earth_page"
+      },
+      "torn_ender_page" : {
+         "textures" : "textures/items/tools/torn_pages/torn_ender_page"
+      },
+      "torn_sky_page" : {
+         "textures" : "textures/items/tools/torn_pages/torn_sky_page"
+      },
+      "blank_scroll" : {
+         "textures" : "textures/items/scrolls/blank_scroll"
+      },
+      "earth_scroll" : {
+         "textures" : "textures/items/scrolls/earth_inscribed_scroll"
+      },
+      "ender_scroll" : {
+         "textures" : "textures/items/scrolls/ender_inscribed_scroll"
+      },
+      "lunar_scroll" : {
+         "textures" : "textures/items/scrolls/lunar_inscribed_scroll"
+      },
+      "sky_scroll" : {
+         "textures" : "textures/items/scrolls/sky_inscribed_scroll"
+      },
+      "solar_scroll" : {
+         "textures" : "textures/items/scrolls/solar_inscribed_scroll"
+      },
+      "sculk_scroll" : {
+         "textures" : "textures/items/scrolls/sculky_scroll"
+      },
+      "dusty_broom" : {
+         "textures" : "textures/items/tools/broom"
+      },
+      "base_talisman" : {
+         "textures" : "textures/items/talismans/bone_talisman"
+      },
+      "talisman_agility" : {
+         "textures" : "textures/items/talismans/agility_talisman"
+      },
+      "talisman_air_walk" : {
+         "textures" : "textures/items/talismans/air_walk_talisman"
+      },
+      "talisman_feather" : {
+         "textures" : "textures/items/talismans/feather_talisman"
+      },
+      "talisman_heartblood" : {
+         "textures" : "textures/items/talismans/heartblood_talisman"
+      },
+      "talisman_leaping" : {
+         "textures" : "textures/items/talismans/leaping_talisman"
+      },
+      "talisman_shellbreath" : {
+         "textures" : "textures/items/talismans/shellbreath_talisman"
+      },
+      "talisman_fyreblood" : {
+         "textures" : "textures/items/talismans/fyreblood_talisman"
+      },
+      "talisman_witherward" : {
+         "textures" : "textures/items/talismans/wither_talisman"
+      },
+      "talisman_detox" : {
+         "textures" : "textures/items/talismans/poison_talisman"
+      },
+      "talisman_ironblade" : {
+         "textures" : "textures/items/talismans/ironblade_talisman"
+      },
+      "talisman_night_sight" : {
+         "textures" : "textures/items/talismans/night_sight_talisman"
+      },
+      "default_hat" : {
+         "textures" : "textures/items/hats/default_witch_hat"
+      },
+      "earth_hat" : {
+         "textures" : "textures/items/hats/witch_hat_earth"
+      },
+      "ender_hat" : {
+         "textures" : "textures/items/hats/witch_hat_ender"
+      },
+      "solar_hat" : {
+         "textures" : "textures/items/hats/witch_hat_solar"
+      },
+      "lunar_hat" : {
+         "textures" : "textures/items/hats/witch_hat_lunar"
+      },
+      "sky_hat" : {
+         "textures" : "textures/items/hats/witch_hat_sky"
+      },
+      "soul_hat" : {
+         "textures" : "textures/items/hats/witch_hat_soul"
+      }
+   }
+}

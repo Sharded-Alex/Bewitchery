@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "The Coven of Tomes",
+              "pages": [
+                "§2[Poison]§1\n\nNature is not always kind and harmless and the §2Poison§1 spell shows this. It shoots a poisonous projectile at the target and shaves down their health.",
+                "§1Element: §2Earth Magick§1\nAffinity Req: 5%\n\nSpell Combination:\n\n1) §2Earth§1\n2) §2Earth§1\n3) §5Ender§1§r"
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§2Poison§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

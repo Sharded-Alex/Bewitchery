@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "bw:brewing_xp_potion"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "bw:sculk_vial",
+    "reagent": "bw:soul_fragment",
+    "output": "bw:xp_vial"
+  }
+
+}

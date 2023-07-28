@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kills": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "kill_items": "q.skin_id == 1"
+            }
+          ]
+        },
+        "kill_items": {
+          "on_entry": [
+            "/kill @e[type=item, name=\"Obsidian\", r=5]",
+            "/kill @e[type=item, name=\"Ender Chest\", r=5]",
+            "@s death"
+          ]
+        }
+      }
+    },
+    "controller.animation.summon": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "transform": "q.skin_id == 1"
+            }
+          ]
+        },
+        "transform": {
+          "on_entry": [
+            "/summon bw:ender_chest_kill ~~~",
+            "@s break_death"
+          ]
+        }
+      }
+    }
+  }
+}

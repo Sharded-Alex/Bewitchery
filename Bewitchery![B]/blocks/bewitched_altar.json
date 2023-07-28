@@ -1,0 +1,76 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "bw:bewitched_altar",
+      "properties": {
+        "bw:rotation": [2, 3, 4, 5]
+      }
+    },
+    "components": {
+      "minecraft:unit_cube": {},
+      "minecraft:creative_category": {
+				"category": "items"
+			},
+			"minecraft:on_player_placing": {
+				"event": "bw:rotation",
+				"target": "self"
+			},
+      "minecraft:rotation": [0, 0, 0],
+      "minecraft:selection_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 11, 16]
+      },
+      "minecraft:collision_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 11, 16]
+      },
+			"minecraft:crafting_table": {
+				"grid_size": 3,
+				"custom_description": "Witch's Workbench",
+				"crafting_tags": [
+					"witch_altar"
+				]
+			},
+	    "minecraft:explosion_resistance": 0,
+      "minecraft:destroy_time": 1.5,
+      "minecraft:breathability": "solid",
+      "minecraft:friction": 0.6,
+      "minecraft:block_light_filter": 0.0,
+      "minecraft:block_light_emission": 0.0
+    },
+    "events": {
+      "bw:rotation": {
+        "set_block_property": {
+          "bw:rotation": "(q.cardinal_facing_2d)"
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_property('bw:rotation') == 0",
+        "components": {
+          "minecraft:rotation": [0, 0, 0]
+        }
+      },
+      {
+        "condition": "q.block_property('bw:rotation') == 1",
+        "components": {
+          "minecraft:rotation": [0, 180, 0]
+        }
+      },
+      {
+        "condition": "q.block_property('bw:rotation') == 2",
+        "components": {
+          "minecraft:rotation": [0, 90, 0]
+        }
+      },
+      {
+        "condition": "q.block_property('bw:rotation') == 3",
+        "components": {
+          "minecraft:rotation": [0, 270, 0]
+        }
+      }
+    ]
+  }
+}

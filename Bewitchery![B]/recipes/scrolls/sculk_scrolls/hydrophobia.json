@@ -1,0 +1,41 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:craft_curse_hydrophobia"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "WHW",
+      "Q#S"
+    ],
+    "key": {
+      "#": {
+        "item": "bw:blank_scroll"
+      },
+      "Q": {
+        "item": "minecraft:feather"
+      },
+      "W": {
+        "item": "minecraft:potion",
+        "data": 0
+      },
+      "H": {
+        "item": "minecraft:nautilus_shell"
+      },
+      "S": {
+        "item": "bw:sculk_vial"
+      }
+    },
+    "result": [
+      {
+        "item": "bw:cursed_scroll.hydrophobia"
+      },
+      {
+        "item": "bw:glass_vial"
+      }
+    ]
+  }
+}

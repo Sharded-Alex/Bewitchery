@@ -1,0 +1,39 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.witch_broom",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 9, 1]
+				},
+				{
+					"name": "stick",
+					"parent": "body",
+					"pivot": [0, 9, 8],
+					"cubes": [
+						{"origin": [-1, 8, -22], "size": [2, 2, 29], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "straw",
+					"parent": "body",
+					"pivot": [0, 9, 7],
+					"cubes": [
+						{"origin": [-4, 5, 9], "size": [8, 8, 11], "uv": [0, 31]},
+						{"origin": [-3, 6, 20], "size": [6, 6, 2], "uv": [0, 50]},
+						{"origin": [-3, 6, 7], "size": [6, 6, 2], "uv": [38, 31]}
+					]
+				}
+			]
+		}
+	]
+}

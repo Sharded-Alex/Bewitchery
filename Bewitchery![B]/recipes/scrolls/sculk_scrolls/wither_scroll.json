@@ -1,0 +1,37 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:craft_curse_wither"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "W",
+      "Q#S"
+    ],
+    "key": {
+      "#": {
+        "item": "bw:blank_scroll"
+      },
+      "Q": {
+        "item": "minecraft:feather"
+      },
+      "W": {
+        "item": "minecraft:wither_rose"
+      },
+      "S": {
+        "item": "bw:sculk_vial"
+      }
+    },
+    "result": [
+      {
+        "item": "bw:cursed_scroll.wither"
+      },
+      {
+        "item": "bw:glass_vial"
+      }
+    ]
+  }
+}

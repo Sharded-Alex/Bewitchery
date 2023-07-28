@@ -1,0 +1,68 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "The Coven of Tomes",
+              "pages": [
+                "§1 Primal Magick is an ancient art that has survived for countless centuries through Witches. This mystical art involves the coercion of the elements to bring about some form of magickal change in the Worlds. However, because of the amount",
+                "§1of work needed to perfect this art, it is not a discipline many Witches study deeply. If you do not mind this and still wish to learn, read on.",
+                "§1[Primal Energies]\n\n There are five (5) Primal Energies across the Worlds; §cSolar§1, §3Lunar§1, §2Earth§1, §8Sky§1 and §5Ender§1. These energies are the foundation of Primal Magick and all Primal Witches rely on them.",
+                "§1Drawing on these energies requires one of either two things; §2attunement§1 or §2the right environment§1. §2With an attunement to a Primal Energy, a Primal Witch can utilize its magick anywhere§1. §2Without one, they must rely on",
+                "§2the environment to be right for spellcasting§1. Read further for explanations of the various Primal Energies as well as the environments they can be used in.",
+                "§1[Attunement]\n\n The first thing a Primal Witch must learn is the importance of Attunement. In most cases, this will shape the type of spells a Witch casts regularly.\n On coming into being, a Witch has 5/6 chance of being attuned to", 
+                "§1one of the five (5) §2Primal Elements§1. If this is so, they §2gain a 15.0% increase in affinity with that Primal Element§1. If they are unlucky enough to not be attuned to anything, they gain no increase in affinity at all. This isn't as bad as it",
+                "§1sounds though because, using the power of §2alchemy§1, §2rituals§1 and a little adventuring, a Witch §2can attune to the Primal Elements§1 themselves.\n Having an attunement to a Primal Element also allows",
+                "§1a Witch to §2bypass the environmental restrictions§1 of that element, giving them the ability to call on it anywhere.",
+                "§1[Affinity]\n\n The elemental affinity of a Witch showcases how powerful they are. Most spells require a certain amount of affinity with a certain Primal Element to be performed successfully. As a result, Primal Witches",
+                "§1generally §2practice their spells regularly to increase their affinities§1.\n Affinities are measured through percentages and having 0.0% affinity with any element is impossible. They can be increased through two other means",
+                "§1but these have a consequence that practicing spells doesn't have.\n The first method is through an §2Emerald Wand§1. By going into a biome rich in a Primal Element, a Witch can draw this energy into themselves",
+                "§1to slowly increase their affinity. The second method is §2finding §2Tattered Pages§1 in ancient structures and using them to increase a random affinity by 5.0%§1. The downside of these methods is that,",
+                "§1while one affinity increases, §2its opposite will decrease by the same amount as well§1. There are speculations as to why this is so but this isn't a tome on Primal Mysticology so we will not include them.",
+                "§1 However, it is important to keep this in mind when increasing affinities through these methods.",
+                "§1[Primal Crystals]\n\n Primal Crystals are basically crystallized primal energy. A Primal Witch §2releases the energy in these crystals in an almost ritualistic sequence to cast spells§1. These crystals are alchemized",
+                "§1in the Witch Pot [see Bewitched Brews, pg. 30] and are fundamental aspects of a Primal Witch's inventory.",
+                "§1[The Elements]\n\n This section talks about the Elements, the environments unattuned Witches can use them in and some simple spells for beginners.",
+                "§c    |[Solar Energy]|§r§1\n\n Solar energy is refers to the magickal energy of the Sun and the Nether. It is dual by nature because it is both a defensive force and an offensive one. In fact, its intense heat generally protects its witch fiercely.",
+                "§1For a Witch unattuned to Solar energy, they can only access it under the light of the sun or within the Nether dimension.",
+                "§cSolar Bolt§1\n§1===============§r\n\n§1A basic spell that harnesses Solar Essence to blast bolts of fiery hot energy. It is a popular attack spell for witches as it gets the job done.§r",
+                "§1Spell Sequence:\n\n1) §cSolar§1\n2) §cSolar§1\n3) §8Sky§1§r",
+                "§3    |[Lunar Energy]|§r§1\n\n The calm and secretive energy of the Moon is one that most witches enjoy. By nature, it isn't very offensive or even defensive but it's utility is generally unmatched. It also hides the things that wish to be hidden.",
+                "§1For a Witch unattuned to Lunar energy, they can only access it under the cover of the night. Because of the connection the Moon has with water, standing in water also gives access to this energy.",
+                "§3Conceal§1\n===============§r\n\n§1A spell that calls on the power of the Moon to obscure the caster from sight. It is useful for traversing in places that they most definitely shouldn't be.§r",
+                "§1Spell Sequence:\n\n1) §3Lunar§1\n2) §3Lunar§1\n3) §3Lunar§1§r",
+                "§8    |[Sky Energy]|§r§1\n\n The energy of the Sky is a turbulent and powerful one. As such, its witches are very powerful and as destructive as Solar witches, if not moreso. Freedom is also an important aspect of this element's energy.",
+                "§1For a Witch unattuned to the Sky, they can only access it in the rain of a storm (meaning you must be in the rain). Because of the relation the Sky has with water, standing in water will suffice as well.",
+                "§8Hasten§1\n===============\n\n§1Potions can give long lasting speed, but for situations when you need immediate speed, this spell is a great substitute.§r",
+                "§1Spell Sequence:\n\n1) §8Sky§1\n2) §8Sky§1\n3) §2Earth§1§r",
+                "§2    |[Earth Energy]|§r§1\n\n Earth energy is one of calmness and defensive strength. Earth witches are not known for attacking with their magick but defending the weak and healing them is their strong suit.",
+                "§1For a Witch unattuned to Earth energy, they can only access it within the Overworld. Because of its wide environmental range, witches generally call upon Earth energy alot.",
+                "§2Earth Dome§1\n===============\n\n§1The spell for all witches who love exploration. It conjures a small dome structure of dirt that shields against the elements. Perfect for camping!§r",
+                "§1Spell Sequence:\n\n1) §2Earth§1\n2) §8Sky§1\n3) §2Earth§1§r",
+                "§5    |[Ender Energy]|§r§1\n\n Ender energy is one of the occult and the warping darkness. No one truly knows what aspects it truly has but Ender Witches are known for their elusiveness and strange magickal spells.",
+                "§1For a Witch unattuned to Ender energy, they can only access it within the End. Because of its very limited environmental range, witches generally don't use it unless they are attuned to it.",
+                "§5Ender Step§1\n===============\n\n§1A spell that allows the witch to fold space and step through it. They end up in a random spot in a 25 cubic block radius.",
+                "§1Spell Sequence:\n\n1) §5Ender§1\n2) §5Ender§1\n3) §5Ender§1§r",
+                "§1[Closing Words]\n\n Primal Magick is a simple yet complex form of magick but it is fun and useful once you get the hang of it. To become a powerful Primal Witch, you will have to increase your affinities and experiment with",
+                "§1Primal Crystals to discover new spells, along with getting attuned to all five Elements. We highly recommend keeping a Book & Quill close for noting down new spells because why not? Maybe one day, you'll build a library to house",
+                "§1all the magickal knowledge you've acquired! Whatever you end up doing with this knowledge, we, the Coven of Tomes, wish you best. May the Elements bless and be with you always."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§f[#3] Primal Magick & You§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

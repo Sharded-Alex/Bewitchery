@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:blank_bone_talisman"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      " # ",
+      "#/#",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:bone"
+      },
+      "/": {
+        "item": "bw:soul_fragment"
+      }
+    },
+    "result": {
+      "item": "bw:bone_talisman"
+    }
+  }
+}

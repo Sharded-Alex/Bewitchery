@@ -1,0 +1,236 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:amethyst_wand"
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:foil": false,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:durability": {
+				"max_durability": 500,
+				"damage_chance": {
+					"min": 1,
+					"max": 1
+				}
+			},
+			"minecraft:on_use": {
+			  "on_use": {
+			    "event": "cast_incantation"
+			  }
+			},
+			"minecraft:icon": {
+				"texture": "amethyst_wand"
+			}
+		},
+		"events": {
+		  "cast_incantation": {
+		    "sequence": [
+		      {
+		        "sequence": [
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 0",
+		            "run_command": {
+		              "command": [
+		                "tellraw @s {\"rawtext\": [{\"text\": \"No incantation is in use right now. Speak an incantation to cast spells.\"}]}"
+		              ]
+		            }
+		          }
+		        ]
+		      },
+		      {
+		        "sequence": [
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 1 && q.scoreboard('bw:wandUse') > 1 && q.scoreboard('bw:CD1') == 0",
+		            "run_command": {
+		              "command": [
+		                "particle bw:ender_spellcast ~~~",
+		                "function raycast_functions/OstiumAdLocum/spell_start",
+		                "scoreboard players remove @s bw:wandUse 1",
+		                "scoreboard players set @s bw:CD1 40"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 5,
+    		          "target": "self"
+    		        }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 1 && q.scoreboard('bw:wandUse') == 2 && q.scoreboard('bw:CD1') == 0",
+		            "run_command": {
+		              "command": [
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou have 1 more use of this incantation before you need to recast it.§r\"}]}"
+		              ],
+		              "target": "holder"
+		            }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 1 && q.scoreboard('bw:wandUse') == 1 && q.scoreboard('bw:CD1') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/OstiumAdLocum/spell_start",
+		                "scoreboard players set @s bw:wandSpell 0",
+		                "scoreboard players set @s bw:wandUse 0",
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou'll need to recast the incantation to use this spell again.§r\"}]}",
+		                "scoreboard players set @s bw:CD1 40"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 5,
+    		          "target": "self"
+    		        }
+		          }
+		        ]
+		      },
+		      {
+		        "sequence": [
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 2 && q.scoreboard('bw:wandUse') > 1 && q.scoreboard('bw:CD2') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/CreoAquam/spell_start",
+		                "scoreboard players remove @s bw:wandUse 1",
+		                "scoreboard players set @s bw:CD2 60"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 1,
+    		          "target": "self"
+    		        }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 2 && q.scoreboard('bw:wandUse') == 2 && q.scoreboard('bw:CD2') == 0",
+		            "run_command": {
+		              "command": [
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou have 1 more use of this incantation before you need to recast it.§r\"}]}"
+		              ],
+		              "target": "holder"
+		            }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 2 && q.scoreboard('bw:wandUse') == 1 && q.scoreboard('bw:CD2') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/CreoAquam/spell_start",
+		                "scoreboard players set @s bw:wandSpell 0",
+		                "scoreboard players set @s bw:wandUse 0",
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou'll need to recast the incantation to use this spell again.§r\"}]}",
+		                "scoreboard players set @s bw:CD2 60"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 1,
+    		          "target": "self"
+    		        }
+		          }
+		        ]
+		      },
+		      {
+		        "sequence": [
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 3 && q.scoreboard('bw:wandUse') > 1 && q.scoreboard('bw:CD3') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/CreoIgnis/spell_start",
+		                "scoreboard players remove @s bw:wandUse 1",
+		                "scoreboard players set @s bw:CD3 60"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 1,
+    		          "target": "self"
+    		        }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 3 && q.scoreboard('bw:wandUse') == 2 && q.scoreboard('bw:CD3') == 0",
+		            "run_command": {
+		              "command": [
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou have 1 more use of this incantation before you need to recast it.§r\"}]}"
+		              ],
+		              "target": "holder"
+		            }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 3 && q.scoreboard('bw:wandUse') == 1 && q.scoreboard('bw:CD3') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/CreoIgnis/spell_start",
+		                "scoreboard players set @s bw:wandSpell 0",
+		                "scoreboard players set @s bw:wandUse 0",
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou'll need to recast the incantation to use this spell again.§r\"}]}",
+		                "scoreboard players set @s bw:CD3 60"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 1,
+    		          "target": "self"
+    		        }
+		          }
+		        ]
+		      },
+		      {
+		        "sequence": [
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 4 && q.scoreboard('bw:wandUse') > 1 && q.scoreboard('bw:CD4') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/CreoIgnisAquam/spell_start",
+		                "scoreboard players remove @s bw:wandUse 1",
+		                "scoreboard players set @s bw:CD4 60"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 3,
+    		          "target": "self"
+    		        }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 4 && q.scoreboard('bw:wandUse') == 2 && q.scoreboard('bw:CD4') == 0",
+		            "run_command": {
+		              "command": [
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou have 1 more use of this incantation before you need to recast it.§r\"}]}"
+		              ],
+		              "target": "holder"
+		            }
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:wandSpell') == 4 && q.scoreboard('bw:wandUse') == 1 && q.scoreboard('bw:CD4') == 0",
+		            "run_command": {
+		              "command": [
+		                "function raycast_functions/CreoIgnisAquam/spell_start",
+		                "scoreboard players set @s bw:wandSpell 0",
+		                "scoreboard players set @s bw:wandUse 0",
+		                "tellraw @s {\"rawtext\": [{\"text\": \"§cYou'll need to recast the incantation to use this spell again.§r\"}]}",
+		                "scoreboard players set @s bw:CD4 60"
+		              ],
+		              "target": "holder"
+		            },
+    		        "damage": {
+    		          "type": "none",
+    		          "amount": 3,
+    		          "target": "self"
+    		        }
+		          }
+		        ]
+		      }
+		    ]
+		  }
+		}
+	}
+}

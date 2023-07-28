@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "bw:forest_elixir",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

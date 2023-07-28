@@ -1,0 +1,7 @@
+loot give @s loot "spellbooks/aquabreath"
+loot give @s loot "spellbooks/astral_form"
+loot give @s loot "spellbooks/conceal"
+loot give @s loot "spellbooks/darkvision"
+loot give @s loot "spellbooks/frostbite"
+loot give @s loot "spellbooks/lunar_aid"
+loot give @s loot "spellbooks/splash"

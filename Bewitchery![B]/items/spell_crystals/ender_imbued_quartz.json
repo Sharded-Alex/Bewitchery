@@ -1,0 +1,744 @@
+{
+	"format_version": "1.18.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:ender_imbued_quartz",
+			"category": "items"
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.essences"
+			},
+			"minecraft:max_stack_size": 64,
+			"minecraft:hand_equipped": false,
+			"minecraft:icon": {
+				"texture": "ender_essence"
+			},
+			"minecraft:cooldown": {
+			  "category": "bw:essence_crystal",
+			  "duration": 0.5
+			},
+			"minecraft:on_use": {
+			  "on_use": {
+			    "event": "imbue_player"
+			  }
+			}
+		},
+		"events": {
+		  "imbue_player": {
+		    "sequence": [
+		      {
+		        "condition": "q.scoreboard('bw:p_Blocked') == 0",
+		        "sequence": [
+		          {
+		            "condition": "q.scoreboard('bw:spellSlot1') == 0",
+        		    "run_command": {
+        		      "command": [
+        		        "particle bw:ender_spell_phase_one ~~~",
+        		        "playsound mob.endermite.say @a[r=6] ~~~ 0.8",
+        		        "scoreboard players set @s bw:spellSlot1 5",
+        		        "scoreboard players set @s bw:spellTime 0"
+        		      ]
+        		    },
+        		    "decrement_stack": {}
+		          },
+		          {
+		            "condition": "q.scoreboard('bw:spellSlot1') > 0 && q.scoreboard('bw:spellSlot2') == 0",
+        		    "run_command": {
+        		      "command": [
+        		        "particle bw:ender_spell_phase_two ~~~",
+        		        "playsound mob.endermite.say @a[r=6] ~~~ 0.8",
+        		        "scoreboard players set @s bw:spellSlot2 5",
+        		        "scoreboard players set @s bw:spellTime 0"
+        		      ]
+        		    },
+        		    "decrement_stack": {}
+		          }
+		        ]
+		      },
+		      {
+		        "condition": "q.scoreboard('bw:p_Blocked') == 0 && q.scoreboard('bw:spellSlot1') > 0 && q.scoreboard('bw:spellSlot2') > 0",
+		        "sequence": [
+		          {
+		            "condition": "!(q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4) && !(q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5) && !(q.scoreboard('bw:spellSlot1') == 1 && q.scoreboard('bw:spellSlot2') == 1) && !(q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 5) && !(q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 1) && !(q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 2) && !(q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 3) && !(q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 4) && !(q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 6)",
+		            "run_command": {
+		              "command": [
+		                "tellraw @s {\"rawtext\":[{\"text\":\"§cNo such spell exists.§r\"}]}",
+		                "scoreboard players set @s bw:spellSlot1 0",
+		                "scoreboard players set @s bw:spellSlot2 0",
+		                "scoreboard players set @s bw:spellTime 0"
+		              ]
+		            }
+		          },
+		          
+		          {
+		            "sequence": [
+		              {
+		                "condition": "q.scoreboard('bw:dV_CD') == 0 && (q.scoreboard('bw:lunarAff') >= 20 && q.scoreboard('bw:lunarAff') <= 49) && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "add_mob_effect": {
+        		              "effect": "night_vision",
+        		              "target": "holder",
+        		              "duration": 90,
+        		              "amplifier": 0
+        		            },
+        		            "run_command": {
+        		              "command": [
+        		                "scoreboard players set @s bw:dV_CD 1300",
+        		                "particle bw:lunar_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:dV_CD') > 0 && (q.scoreboard('bw:lunarAff') >= 20 && q.scoreboard('bw:lunarAff') <= 49) && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "q.scoreboard('bw:dV_CD') == 0 && q.scoreboard('bw:lunarAff') >= 50 && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "add_mob_effect": {
+        		              "effect": "night_vision",
+        		              "target": "holder",
+        		              "duration": 120,
+        		              "amplifier": 0
+        		            },
+        		            "run_command": {
+        		              "command": [
+        		                "scoreboard players set @s bw:dV_CD 2500",
+        		                "particle bw:lunar_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:dV_CD') > 0 && q.scoreboard('bw:lunarAff') >= 50 && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:dV_CD') == 0 && q.scoreboard('bw:lunarAff') < 20 && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §3Lunar Magick§r isn't high enough to cast this spell. [20.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              
+		              {
+		                "condition": "q.scoreboard('bw:astralF_CD') == 0 && (q.scoreboard('bw:lunarAff') >= 45 && q.scoreboard('bw:lunarAff') <= 69) && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tag @s add bw:astralForm",
+        		                "scoreboard players set @s bw:astralF_CD 600",
+        		                "particle bw:lunar_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ],
+        		              "target": "player"
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:astralF_CD') > 0 && (q.scoreboard('bw:lunarAff') >= 45 && q.scoreboard('bw:lunarAff') <= 69) && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "q.scoreboard('bw:astralF_CD') == 0 && q.scoreboard('bw:lunarAff') >= 70 && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tag @s add bw:astralForm",
+        		                "scoreboard players set @s bw:astralF_CD 900",
+        		                "particle bw:lunar_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ],
+        		              "target": "player"
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:astralF_CD') > 0 && q.scoreboard('bw:lunarAff') >= 70 && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5 && (q.time_of_day >= 0.75 || q.time_of_day <= 0.25) || q.is_in_water || q.scoreboard('bw:Lunar') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:astralF_CD') == 0 && q.scoreboard('bw:lunarAff') < 45 && q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §3Lunar Magick§r isn't high enough to cast this spell. [45.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "((q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4) || (q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5)) && q.scoreboard('bw:Lunar') == 1 || ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || q.is_in_water",
+		                "randomize": [
+		                  {
+		                    "weight": 50,
+		                    "run_command": {
+		                      "command": [
+		                        "scoreboard players add @s bw:lunarAff 1"
+		                      ]
+		                    }
+		                  },
+		                  {
+		                    "weight": 50
+		                  }
+		                ]
+		              },
+		              {
+		                "condition": "((q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 4) || (q.scoreboard('bw:spellSlot1') == 4 && q.scoreboard('bw:spellSlot2') == 5)) && !q.scoreboard('bw:Lunar') == 1 && !(q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && !q.is_in_water",
+		                "run_command": {
+		                  "command": [
+		                    "tellraw @s {\"rawtext\":[{\"text\":\"§bThere is not enough Lunar Essence to cast this spell!§r\"}]}",
+		                    "scoreboard players set @s bw:spellSlot1 0",
+        		            "scoreboard players set @s bw:spellSlot2 0",
+        		            "scoreboard players set @s bw:spellTime 0"
+		                  ]
+		                }
+		              }
+		            ]
+		          },
+		          
+		          {
+		            "sequence": [
+		              {
+		                "condition": "q.scoreboard('bw:poison_CD') == 0 && q.scoreboard('bw:earthAff') >= 5 && q.scoreboard('bw:spellSlot1') == 1 && q.scoreboard('bw:spellSlot2') == 1 && (q.scoreboard('bw:Earth') == 1 || (q.biome_has_any_tag('overworld', 'overworld_generation')))",
+    		            "sequence": [
+        		          {
+        		            "shoot": {
+        			            "projectile": "bw:poison_ball",
+        			            "launch_power": 2.6
+        		            },
+        		            "run_command": {
+        		              "command": [
+        		                "scoreboard players set @s bw:poison_CD 60",
+        		                "particle bw:earth_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:poison_CD') > 0 && q.scoreboard('bw:earthAff') >= 5 && q.scoreboard('bw:spellSlot1') == 1 && q.scoreboard('bw:spellSlot2') == 1 && (q.scoreboard('bw:Earth') == 1 || (q.biome_has_any_tag('overworld', 'overworld_generation')))",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:poison_CD') == 0 && q.scoreboard('bw:earthAff') < 5 && q.scoreboard('bw:spellSlot1') == 1 && q.scoreboard('bw:spellSlot2') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §2Earth Magick§r isn't high enough to cast this spell. [5.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "(q.scoreboard('bw:spellSlot1') == 1 && q.scoreboard('bw:spellSlot2') == 1) && q.scoreboard('bw:Earth') == 1 || q.biome_has_any_tag('overworld', 'overworld_generation')",
+		                "randomize": [
+		                  {
+		                    "weight": 25,
+		                    "run_command": {
+		                      "command": [
+		                        "scoreboard players add @s bw:earthAff 1"
+		                      ]
+		                    }
+		                  },
+		                  {
+		                    "weight": 75
+		                  }
+		                ]
+		              },
+		              {
+		                "condition": "((q.scoreboard('bw:spellSlot1') == 1 && q.scoreboard('bw:spellSlot2') == 1 && q.scoreboard('bw:Poison') == 1)) && !q.scoreboard('bw:Earth') == 1 && !q.biome_has_any_tag('overworld', 'overworld_generation')",
+		                "run_command": {
+		                  "command": [
+		                    "tellraw @s {\"rawtext\":[{\"text\":\"§aThere is not enough Earth Essence to cast this spell!§r\"}]}",
+		                    "scoreboard players set @s bw:spellSlot1 0",
+        		            "scoreboard players set @s bw:spellSlot2 0",
+        		            "scoreboard players set @s bw:spellTime 0"
+		                  ]
+		                }
+		              }
+		            ]
+		          },
+		          
+		          {
+		            "sequence": [
+		              {
+		                "condition": "q.scoreboard('bw:eS_CD') == 0 && q.scoreboard('bw:enderAff') >= 1 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 5 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+                        "teleport": {
+                          "target": "holder",
+                          "max_range": [25, 25, 25],
+                          "avoid_water": false
+                        },
+        		            "run_command": {
+        		              "command": [
+        		                "scoreboard players set @s bw:eS_CD 80",
+        		                "particle bw:ender_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:eS_CD') > 0 && q.scoreboard('bw:enderAff') >= 1 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 5 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:eS_CD') == 0 && q.scoreboard('bw:enderAff') < 1 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 5",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §5Ender Magick§r isn't high enough to cast this spell. [1.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "q.scoreboard('bw:eChest_CD') == 0 && q.scoreboard('bw:enderAff') >= 45 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 1 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "summon bw:ender_chest_bug ~~~",
+		                        "setblock ~~~ ender_chest 0 replace",
+		                        "particle bw:ender_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:eChest_CD') == 0 && q.scoreboard('bw:enderAff') >= 45 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 1 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"This spell is on cooldown.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:eChest_CD') == 0 && q.scoreboard('bw:enderAff') < 45 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §5Ender Magick§r isn't high enough to cast this spell. [45.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "(query.relative_block_has_any_tag(2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, -2, 'bw:white_slate')) && q.scoreboard('bw:enderAff') >= 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 2 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+            		            "function tp_nether",
+            		            "particle bw:ender_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "!(query.relative_block_has_any_tag(2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, -2, 'bw:white_slate')) && q.scoreboard('bw:enderAff') >= 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 2 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+            		            "tellraw @s {\"rawtext\":[{\"text\":\"You need to be standing in the §5Asmodias' Circle§r ritual pattern to perform this spell.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:enderAff') < 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 2",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §5Ender Magick§r isn't high enough to cast this spell. [10.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "(query.relative_block_has_any_tag(2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, -2, 'bw:white_slate')) && q.scoreboard('bw:enderAff') >= 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 3 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+            		            "function tp_overworld",
+            		            "particle bw:ender_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "!(query.relative_block_has_any_tag(2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, -2, 'bw:white_slate')) && q.scoreboard('bw:enderAff') >= 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 3 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+            		            "tellraw @s {\"rawtext\":[{\"text\":\"You need to be standing in the §5Asmodias' Circle§r ritual pattern to perform this spell.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:enderAff') < 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 3",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §5Ender Magick§r isn't high enough to cast this spell. [10.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "(query.relative_block_has_any_tag(2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, -2, 'bw:white_slate')) && q.scoreboard('bw:enderAff') >= 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 4 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+            		            "function tp_end",
+            		            "particle bw:ender_spellcast ~~~",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "!(query.relative_block_has_any_tag(2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 0, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, 1, 'bw:white_slate') && query.relative_block_has_any_tag(-2, -1, -1, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, 2, 'bw:white_slate') && query.relative_block_has_any_tag(0, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(1, -1, -2, 'bw:white_slate') && query.relative_block_has_any_tag(-1, -1, -2, 'bw:white_slate')) && q.scoreboard('bw:enderAff') >= 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 4 && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+            		            "tellraw @s {\"rawtext\":[{\"text\":\"You need to be standing in the §5Asmodias' Circle§r ritual pattern to perform this spell.\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              {
+		                "condition": "q.scoreboard('bw:enderAff') < 10 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 4",
+    		            "sequence": [
+        		          {
+        		            "run_command": {
+        		              "command": [
+        		                "tellraw @s {\"rawtext\":[{\"text\":\"Your affinity with §5Ender Magick§r isn't high enough to cast this spell. [10.0%]\"}]}",
+        		                "scoreboard players set @s bw:spellSlot1 0",
+        		                "scoreboard players set @s bw:spellSlot2 0",
+        		                "scoreboard players set @s bw:spellTime 0"
+        		              ]
+        		            },
+        		            "decrement_stack": {}
+        		          }
+    		            ]
+		              },
+		              
+		              {
+		                "condition": "((q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 5) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 1) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 2) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 3) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 4)) && ((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) || query.biome_has_any_tag('the_end') || q.scoreboard('bw:Ender') == 1",
+		                "randomize": [
+		                  {
+		                    "weight": 25,
+		                    "run_command": {
+		                      "command": [
+		                        "scoreboard players add @s bw:enderAff 1"
+		                      ]
+		                    }
+		                  },
+		                  {
+		                    "weight": 75
+		                  }
+		                ]
+		              },
+		              {
+		                "condition": "((q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 5) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 1) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 2) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 3) || (q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 4)) && !((q.time_of_day >= 0.75 || q.time_of_day <= 0.25) && query.biome_has_any_tag('overworld', 'overworld_generation')) && !query.biome_has_any_tag('the_end') && !q.scoreboard('bw:Ender') == 1",
+		                "run_command": {
+		                  "command": [
+		                    "tellraw @s {\"rawtext\":[{\"text\":\"§5There is not enough Ender Essence to cast this spell!§r\"}]}",
+		                    "scoreboard players set @s bw:spellSlot1 0",
+        		            "scoreboard players set @s bw:spellSlot2 0",
+        		            "scoreboard players set @s bw:spellTime 0"
+		                  ]
+		                }
+		              }
+		            ]
+		          }
+		        ]
+		      },
+		      {
+		        "condition": "q.scoreboard('bw:p_Blocked') == 0 && q.scoreboard('bw:spellSlot1') == 5 && q.scoreboard('bw:spellSlot2') == 6",
+		        "sequence": [
+		          {
+		            "condition": "q.is_sneaking && q.scoreboard('bw:Ender') == 1",
+		            "run_command": {
+		              "command": [
+  		              "playsound beacon.power @a[r=6] ~~~ 0.8",
+  		              "function warp/set_tp/warp5/initiate",
+  		              "scoreboard players set @s bw:spellSlot1 0",
+		                "scoreboard players set @s bw:spellSlot2 0",
+		                "scoreboard players set @s bw:spellTime 0"
+  		            ]
+		            }
+		          },
+		          {
+		            "condition": "q.is_sneaking && q.scoreboard('bw:Ender') == 0",
+		            "run_command": {
+		              "command": [
+  		              "playsound beacon.deactivate @a[r=6] ~~~ 0.8",
+  		              "tellraw @s {\"rawtext\":[{\"text\":\"§5You are not attuned to the Void. You cannot bind to this Warp.\"}]}",
+  		              "scoreboard players set @s bw:spellSlot1 0",
+		                "scoreboard players set @s bw:spellSlot2 0",
+		                "scoreboard players set @s bw:spellTime 0"
+  		            ]
+		            }
+		          },
+		          
+		          {
+		            "condition": "!q.is_sneaking && (q.scoreboard('bw:warp5X') == 0 && q.scoreboard('bw:warp5Y') == 0 && q.scoreboard('bw:warp5Z') == 0) && (q.player_level >= 1 || q.player_level < 1)",
+		            "run_command": {
+		              "command": [
+  		              "tellraw @s {\"rawtext\":[{\"text\":\"§cThere is no location bound to the §5Void§r.\"}]}",
+		                "scoreboard players set @s bw:spellSlot1 0",
+		                "scoreboard players set @s bw:spellSlot2 0",
+		                "scoreboard players set @s bw:spellTime 0"
+  		            ]
+		            }
+		          },
+		          {
+		            "condition": "!q.is_sneaking && (q.scoreboard('bw:warp5X') != 0 && q.scoreboard('bw:warp5Y') != 0 && q.scoreboard('bw:warp5Z') != 0) && q.player_level >= 1",
+		            "run_command": {
+		              "command": [
+  		              "playsound portal.travel @a[r=6] ~~~ 0.5",
+  		              "function warp/go_tp/warpTo_5",
+  		              "xp -1l @s",
+  		              "scoreboard players set @s bw:spellSlot1 0",
+		                "scoreboard players set @s bw:spellSlot2 0",
+		                "scoreboard players set @s bw:spellTime 0"
+  		            ]
+		            }
+		          },
+		          {
+		            "condition": "!q.is_sneaking && (q.scoreboard('bw:warp5X') != 0 && q.scoreboard('bw:warp5Y') != 0 && q.scoreboard('bw:warp5Z') != 0) && q.player_level < 1",
+		            "run_command": {
+		              "command": [
+  		              "playsound beacon.deactivate @a[r=6] ~~~ 0.8",
+  		              "tellraw @s {\"rawtext\":[{\"text\":\"§aInsufficient XP Levels!\"}]}",
+  		              "scoreboard players set @s bw:spellSlot1 0",
+		                "scoreboard players set @s bw:spellSlot2 0",
+		                "scoreboard players set @s bw:spellTime 0"
+  		            ]
+		            }
+		          }
+		        ]
+		      },
+		      {
+		        "condition": "q.scoreboard('bw:p_Blocked') >= 1",
+		        "run_command": {
+		          "command": [
+		            "tellraw @s {\"rawtext\":[{\"text\":\"A strange force blocks your connection to the Primal Elements. You are unable to cast spells using crystals.\"}]}"
+		          ]
+		        }
+		      }
+		    ]
+		  }
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:mundane_wand"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "  #",
+      " / ",
+      "/  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:emerald"
+      },
+      "/": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "bw:mundane_wand"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+   "num_mip_levels" : 4,
+   "padding" : 8,
+   "resource_pack_name" : "vanilla",
+   "texture_data" : {
+      "blank_slate" : {
+         "textures" : "textures/blocks/ritual_slate/ritual_slate_base"
+      },
+      "white_glyphed_slate_1" : {
+         "textures" : "textures/blocks/ritual_slate/ritual_slate_white_glyph_1"
+      },
+      "white_glyphed_slate_2" : {
+         "textures" : "textures/blocks/ritual_slate/ritual_slate_white_glyph_2"
+      },
+      "white_glyphed_slate_3" : {
+         "textures" : "textures/blocks/ritual_slate/ritual_slate_white_glyph_3"
+      },
+      "white_glyphed_slate_4" : {
+         "textures" : "textures/blocks/ritual_slate/ritual_slate_white_glyph_4"
+      },
+      "white_glyphed_slate_5" : {
+         "textures" : "textures/blocks/ritual_slate/ritual_slate_white_glyph_5"
+      },
+      "red_glyph" : {
+         "textures" : "textures/blocks/ritual_slate/red_central_glyph"
+      },
+      "transparent" : {
+         "textures" : "textures/blocks/invisible"
+      },
+      "bewitched_altar" : {
+         "textures" : "textures/blocks/altar_block"
+      },
+      "witch_table_front" : {
+         "textures" : "textures/blocks/witch_table/witch_table_back"
+      },
+      "witch_table_side" : {
+         "textures" : "textures/blocks/witch_table/witch_table_side"
+      },
+      "witch_table_top" : {
+         "textures" : "textures/blocks/witch_table/witch_table_top"
+      },
+      "witch_table_back" : {
+         "textures" : "textures/blocks/witch_table/witch_table_front"
+      },
+      "ward_block" : {
+         "textures" : "textures/blocks/ward_block"
+      },
+      "iron_cauldron" : {
+         "textures" : "textures/blocks/spicy_cauldron_iron"
+      },
+      "filled_iron_cauldron" : {
+         "textures" : "textures/blocks/iron_cauldron_filled"
+      },
+      "filled_agility_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_agility"
+      },
+      "filled_conduit_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_conduit"
+      },
+      "filled_defence_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_defence"
+      },
+      "filled_forest_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_forest"
+      },
+      "filled_haste_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_haste"
+      },
+      "filled_holy_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_holy"
+      },
+      "filled_levitation_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_levitation"
+      },
+      "filled_night_stalk_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_night_stalking"
+      },
+      "filled_soul_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_soul"
+      },
+      "filled_vitality_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_filled_vitality"
+      },
+      "filled_solar_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_solar"
+      },
+      "filled_lunar_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_lunar"
+      },
+      "filled_earth_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_earth"
+      },
+      "filled_sky_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_sky"
+      },
+      "filled_ender_cauldron" : {
+         "textures" : "textures/blocks/cauldron_potion/iron_cauldron_ender"
+      }
+   }
+}

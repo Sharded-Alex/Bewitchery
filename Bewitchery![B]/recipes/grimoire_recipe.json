@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:grimoire_recipe"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "@#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:book"
+      },
+      "@": {
+        "item": "bw:coal_dust"
+      }
+    },
+    "result": {
+      "item": "bw:grimoire"
+    }
+  }
+}

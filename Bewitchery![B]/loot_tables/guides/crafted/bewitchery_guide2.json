@@ -1,0 +1,64 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "The Coven of Tomes",
+              "pages": [
+                "§1 Potions have been apart of magickal society for as long as most witches and mundanes can remember. In fact, most people know how to brew at least some of them, just as they know how to enchant their armor with powerful enchantments.",
+                "§1 Bewitchery adds a few brews of its own called Vial Potions. These special potions cannot be empowered or extended, neither can they be turned into splash or lingering potions. What they do have is their ability to be stacked up to 8 and most have more",
+                "§1than one effect. They can all be brewed in the §2Witch Pot§1, which can be crafted with Iron Ingots.",
+                "§1Agility Vial P.\n===========\n\nIngredients:\n1) Crushed Cornflower\n2) Sugar\n3) Sugar\n\nEffect(s):\nSpeed II (2:15)\nJump Boost II (2:15)",
+                "§1Defence Vial P.\n=============\n\nIngredients:\n1) Gold Ingot\n2) Iron Nugget\n3) Crushed Oxeye Daisy\n\nEffect(s):\nResistance I (2:15)\nAbsorption II (2:15)",
+                "§1Haste Vial P.\n===========\n\nIngredients:\n1) Emerald Dust\n2) Crushed Dandelion\n3) Crushed Blue Orchid\n\nEffect(s):\nHaste I (2:15)",
+                "§1Levitation Vial P.\n==============\n\nIngredients:\n1) Crushed Blue Orchid\n2) Crushed Cornflower\n3) Feather\n\nEffect(s):\nLevitation (0:15)",
+                "§1Night Stalker Vial P.\n================\n\nIngredients:\n1) Natural Ash\n2) Crushed Poppy\n3) Ink Sac\n\nEffect(s):\nNight Vision (2:15)\nInvisibility (2:15)",
+                "§1Vitality Vial P.\n===========\n\nIngredients:\n1) Crushed Oxeye Daisy\n2) Gold Nugget\n3) Blood Vial\n\nEffect(s):\nRegeneration I (1:00)\nHealth Boost II (1:00)",
+                "§1[Elixirs]\n\n Another type of brew Bewitchery has to offer is directly connected to runic ritual magick and are called §2Elixirs§1. Most of these potions cannot be ingested and those that can be should not be.",
+                "§1Moon Blessed Water\n=================\n\nIngredients:\n1) Crushed Fern\n2) Nautilus Shell\n3) Phantom Membrane",
+                "§1An elixir that holds some essence of the Moon. It has a variety of uses in trade, spellcasting, etc.§r",
+                "§1Elixir of the Conduit\n=================\n\nIngredients:\n1) Nautilus Shell\n2) Heart of the Sea\n3) Kelp",
+                "§1An elixir that is filled with raw conduit power. It is generally used for weather rituals and packs quite a punch.§r",
+                "§1Soul Bottle\n============\n\nIngredients:\n1) Egg\n2) Rotten Flesh\n3) Soul Sand",
+                "§1An elixir that contains a trapped, unborn soul. It is generally used in conjuration rites and rituals.§r",
+                "§1Essence of the Forest\n===================\n\nIngredients:\n1) Any Sapling\n2) Crushed Fern\n3) Red/Brown Mushroom",
+                "§1This elixir contains the mystical essence of the forest. Rituals of transmutation and transformation require this powerful elixir.",
+                "§1Holy Water\n=========\n\nIngredients:\n1) Crushed Dandelion\n2) Blaze Powder\n3) Fermented Spider Eye",
+                "§1Holy Water holds the holy, burning essence of the Sun. It is generally used in rituals of cleansing.§r",
+                "§1[Infusions]\n\n As elixirs are connected to ritual magick, infusions are connected to spellcasting; specifically,  Primal spellcasting. These infusions are necessary for witches that wish to become §2Primal Archwitches§1.",
+                "§1Overworld Mana\n=========\n\nIngredients:\n1) Emerald\n2) Any Sapling\n3) Spore Blossom",
+                "§1A feeling of tranquility and peace permeates through the vial's glass. It is filled with Earth Essence.§r",
+                "§1Stormy Mana\n=========\n\nIngredients:\n1) Copper Ingot\n2) Overworld Mana\n3) Phantom Membrane",
+                "§1The chaotic, powerful magick of the Sky can be felt through the vial's glass.§r",
+                "§1Solar Vial\n=========\n\nIngredients:\n1) Blaze Rod\n2) Crushed Coal\n3) Glowstone Dust",
+                "§1Magickal sunlight stretches through the glass of this vial, burning away impurities and cleansing itself of contaminants.§r",
+                "§1Contained Void\n=========\n\nIngredients:\n1) Popped Chorus Fruit\n2) End Stone\n3) Shulker Shell",
+                "§1The liquid essence of the End is trapped inside this bottle. Logically, there is nothing is inside it.§r",
+                "§1[Primal Crystals]\n\n Primal Crystals §2are small, physical condensations of Primal Magick§1. These crystals are rare finds around the world but witches have found ways to create them.",
+                "§1 All of their crafting recipes §2begin with an Amethyst Shard§1 and §2end with Quartz§1. The following pages will state what items can be used as the §2middle ingredient§1. You should only select §2one (1)§1 of the items.",
+                "§1Solar Crystals\n=========\n\nPotential 2nd Ingredient:\nI) Magma Cream\nII) Blaze Powder\nIII) Gunpowder\nIV) Glowstone Dust",
+                "§1Lunar Crystals\n=========\n\nPotential 2nd Ingredient:\nI) Prismarine Shard\nII) Prismarine Crystals\nIII) Nautilus Shell\nIV) Scute",
+                "§1Earth Crystals\n=========\n\nPotential 2nd Ingredient:\nI) Coal\nII) Emerald\nIII) Diamond\nIV) Sapling",
+                "§1Sky Crystals\n=========\n\nPotential 2nd Ingredient:\nI) Feather\nII) Phantom Membrane\nIII) Rabbit's Foot\nIV) String",
+                "§1Ender Crystals\n=========\n\nPotential 2nd Ingredient:\nI) Ender Pearl\nII) Chorus Fruit\nIII) Shulker Shell\nIV) Obsidian Dust",
+                "§1As we can see, there are a variety of different potions and items that can or must be brewed to progress effectively through the Arts. After mastering brewing, the witch can move on to Runic Rituals."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§f[#2] Bewitched Brews§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

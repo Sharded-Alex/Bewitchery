@@ -1,0 +1,40 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "The Coven of Souls",
+              "pages": [
+                "§1The following pages give a brief explanation of the various talismans and the souls they require as well as what they consume.",
+                "§1(Agility Talisman)\n------------\n\nEffects:\nSpeed II\n\nSoul Required: Cat\nEats: Cod",
+                "§1(Air Walk Talisman)\n--------------\n\nEffects:\nAllows the witch to walk on the air.\n\nSoul Required: Strider\nEats: Crimson Fungus",
+                "§1(Feather Talisman)\n------------\n\nEffects:\nSlow Falling\n\nSoul Required: Chicken\nEats: Wheat Seeds",
+                "§1(Heartblood Talisman)\n------------\n\nEffects:\nRegeneration II\n\nSoul Required: Villager\nEats: Bread",
+                "§1(Leaping Talisman)\n------------\n\nEffects:\nJump Boost II\n\nSoul Required: Rabbit\nEats: Carrot",
+                "§1(Shellbreath Talisman)\n------------\n\nEffects:\nWater Breathing\nResistance\n\nSoul Required: Turtle\nEats: Seagrass",
+                "§1(Fyreblood Talisman)\n------------\n\nEffects:\nFire Resistance\n\nSoul Required: Blaze\nEats: Coal",
+                "§1(Detox Talisman)\n------------\n\nEffects:\nPoison Immunity\n\nSoul Required: Cave Spider\nEats: Chicken",
+                "§1(Witherward Talisman)\n------------\n\nEffects:\nWither Immunity\n\nSoul Required: Wither Skeleton\nEats: Bone",
+                "§1(Night Sight Talisman)\n------------\n\nEffects:\nNight Vision\n\nSoul Required: Bat\nEats: Blood Vial",
+                "§1(Ironblade Talisman)\n------------\n\nEffects:\nStrength I\n\nSoul Required: Iron Golem\nEats: Iron Nugget",
+                "§1Talismans generally work by being in certain slots. These slots §2are generally stated in the talisman's lore§1.\n\nNB: Soul Fragments are collected by hitting the undead with an athame."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§fLiber Phylactelium§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

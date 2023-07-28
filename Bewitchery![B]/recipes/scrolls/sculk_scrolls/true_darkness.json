@@ -1,0 +1,37 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:craft_curse_true_darkness"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "I E",
+      "Q#S"
+    ],
+    "key": {
+      "#": {
+        "item": "bw:blank_scroll"
+      },
+      "Q": {
+        "item": "minecraft:feather"
+      },
+      "I": {
+        "item": "minecraft:ink_sac"
+      },
+      "E": {
+        "item": "minecraft:echo_shard"
+      },
+      "S": {
+        "item": "minecraft:glow_ink_sac"
+      }
+    },
+    "result": [
+      {
+        "item": "bw:cursed_scroll.true_darkness"
+      }
+    ]
+  }
+}

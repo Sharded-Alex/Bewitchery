@@ -1,0 +1,62 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:cursed_scroll.wither"
+		},
+		"components": {
+			"minecraft:max_stack_size": 16,
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.bewitched_scrolls"
+			},
+			"minecraft:hand_equipped": false,
+			"minecraft:foil": false,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:projectile": {
+			  "minimum_critical_power": 2.6,
+			  "projectile_entity": "bw:rotting_bolt"
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "release_spell"
+				}
+			},
+      "minecraft:cooldown":{
+        "category":"bw:hex",
+        "duration": 2.5
+      },
+			"minecraft:icon": {
+				"texture": "sculk_scroll"
+			}
+		},
+		"events": {
+			"release_spell": {
+			  "sequence": [
+			    {
+			      "swing": {},
+		        "shoot": {
+        			"projectile": "bw:rotting_bolt",
+        			"launch_power": 2.6
+        		},
+			      "decrement_stack": {}
+			    },
+			    {
+			      "randomize": [
+			        {
+			          "weight": 25,
+    			      "run_command": {
+    			        "command": [
+    			          "function sculk_spread"
+    			        ]
+    			      }
+			        },
+			        {
+			          "weight": 75
+			        }
+			      ]
+			    }
+			  ]
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "bw:amethyst_dust",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "bw:emerald_dust",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "bw:coal_dust",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "bw:obsidian_dust",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "bw:white_chalk",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "bw:red_chalk",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

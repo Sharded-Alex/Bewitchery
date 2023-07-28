@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:warp_gem"
+    },
+    "tags": [
+      "crafting_table",
+      "witch_altar"
+    ],
+    "pattern": [
+      "###",
+      "#/#",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "bw:ender_imbued_quartz"
+      },
+      "/": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": {
+      "item": "bw:warp_gem"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "bw:activated_night_sight_talisman",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_lore",
+              "lore": [
+                "My eyes see, my powers grow; I will stare into the Dark that stares back",
+                "",
+                "§r§dEquipped In Inventory Slots 1-3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

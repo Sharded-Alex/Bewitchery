@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "bw:brewing_sculk_potion"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "bw:contained_void",
+    "reagent": "minecraft:echo_shard",
+    "output": "bw:sculk_vial"
+  }
+
+}

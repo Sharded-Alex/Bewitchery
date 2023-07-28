@@ -1,0 +1,45 @@
+Bewitchery 0.1.0 | First Major Update
+- Added various items necessary for progression
+- Added the Guidebook Series
+> Added Primal Magick
+- Added the various Primal Crystals (Earth, Solar, Lunar, Sky & Ender)
+> Added Rituals
+
+Bewitchery 0.1.6 | The Patch & Hats Update🩹
+- Fixed a variety of Vial Potions and their Cauldron Recipes.
+- Crafting Crushed Dusts gives 1 Crushed Dust.
+- Witches can now augment the Undead Conjuration Ritual with Elemental Crystals!
+- Fixed the particles for Splash & Frostbite!
+- Implemented an easier way to cast spells, Scrolls!
+- Infernal Rituals have been changed drastically due to lack of demonic entities💀
+- The Calling of the Passive ritual defaults to conjuring Sheep, Cows, Pigs, Chickens and Parrots but now with the right materials, it can conjure more [Frogs, Cats, Wolves & Turtles].
+- Updated the Guides (again💀)
+- A broom can now have 2 riders! Only other Players, Cats, Ocelots, Foxes and Frogs can fit on it though. If the broom only has a cat/frog/ocelot/fox on it, it evicts them and despawns.
+- The Athame should now work on PC. It also now has a cooldown for collecting blood from the player.
+- Added the Glorious Witch Hats. The Elemental Witch Hats keep their element's affinity over 15%. The Soul Witch Hat does nothing yet.
+- Ender spells can now be cast at night if the Witch is not attuned.
+- Added a new spell, Banish
+- Added a new spell, Nether Shift
+- Added a new spell, Ender Shift
+- Added a new spell, Overworld Shift
+- All Shift spells require the player to be standing in the Asmodais' Circle ritual pattern to be successfully performed.
+- Improvements to some items' textures
+
+Bewitchery 0.1.9 | Spells and Stuff Update
+- New Spell: Aura of Prosperity
+- Certain Solar Spells can now light singular Candles!
+- New Spell: Flower Absorption
+
+Bewitchery 0.2.0 | Warp Update
+- New Spell: Warp
+- Added Faery Rings.
+
+Bewitchery 0.2.1 | Bugfix & Polish
+- Changed some potion recipes to make them more easily accessible.
+- Fixed the Flying Broom
+- Talismans now require certain treats once per day to carry out their duties.
+- Spells now have new elemental particles when performed correctly.
+
+Bewitchery 0.2.2 | Bugfix
+- Added the Archaic Grimoire
+- Fixed some rituals

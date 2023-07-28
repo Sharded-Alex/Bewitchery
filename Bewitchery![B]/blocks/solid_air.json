@@ -1,0 +1,73 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "bw:solid_air",
+      "properties": {
+        "bw:detectFeet": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "stone",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:unit_cube": {},
+      "minecraft:rotation": [0, 0, 0],
+      "minecraft:selection_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:collision_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:on_step_on": {
+        "event": "bw:stepOn"
+      },
+      "minecraft:on_fall_on": {
+        "event": "bw:stepOn",
+        "min_fall_distance": 1
+      },
+      "minecraft:on_step_off": {
+        "event": "bw:stepOff"
+      },
+     "minecraft:queued_ticking": {
+        "looping": true,
+        "interval_range": [20, 40],
+        "on_tick": {
+          "condition": "!q.block_property('bw:detectFeet')",
+          "event": "bw:kill"
+        }
+      },
+	    "minecraft:explosion_resistance": 99999,
+      "minecraft:destroy_time": 99999,
+      "minecraft:breathability": "air",
+      "minecraft:friction": 0.6,
+      "minecraft:block_light_filter": 0.0,
+      "minecraft:block_light_emission": 0.0
+    },
+    "events": {
+      "bw:stepOn": {
+        "set_block_property": {
+          "bw:detectFeet": true
+        }
+      },
+      "bw:stepOff": {
+        "set_block_property": {
+          "bw:detectFeet": false
+        }
+      },
+      "bw:kill": {
+        "run_command": {
+          "command": [
+            "setblock ~~~ air []"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

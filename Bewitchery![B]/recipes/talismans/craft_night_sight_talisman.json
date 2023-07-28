@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:craft_night_sight_talisman"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+     "pattern": [
+      "/#",
+      "#0"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:fermented_spider_eye"
+      },
+      "0": {
+        "item": "bw:bone_talisman"
+      },
+      "/": {
+        "item": "bw:soul_fragment"
+      }
+    },
+    "result": [
+      {
+        "item": "bw:night_sight_talisman"
+      }
+    ]
+  }
+}

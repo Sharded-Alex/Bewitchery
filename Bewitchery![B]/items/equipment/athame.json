@@ -1,0 +1,146 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:athame"
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:foil": false,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:weapon": {
+			  "on_hurt_entity": {
+			    "event": "damage_and_gather"
+			  }
+			},
+			"minecraft:durability": {
+				"max_durability": 280,
+				"damage_chance": {
+					"min": 1,
+					"max": 1
+				}
+			},
+			"minecraft:damage": 5,
+			"minecraft:on_use": {
+			  "on_use": {
+			    "event": "harm_self"
+			  }
+			},
+      "minecraft:cooldown":{
+        "category":"bw:athame",
+        "duration": 2.5
+      },
+			"minecraft:icon": {
+				"texture": "athame"
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:iron_ingot"
+						],
+						"repair_amount": 100
+					}
+				]
+			}
+		},
+		"events": {
+		  "harm_self": {
+		    "sequence": [
+		      {
+		        "condition": "q.is_item_name_any('slot.hotbar', 0, 'bw:glass_vial')",
+		        "run_command": {
+		          "command": [
+		            "loot give @s loot \"blood_vial\"",
+  		          "clear @s bw:glass_vial 0 1"
+		          ]
+		        },
+		        "damage": {
+		          "type": "none",
+		          "amount": 1,
+		          "target": "self"
+		        }
+		      },
+		      {
+		        "damage": {
+		          "type": "magic",
+		          "amount": 3,
+		          "target": "holder"
+		        }
+		      }
+		    ]
+		  },
+		  "damage_and_gather": {
+		    "sequence": [
+		      {
+		        "damage": {
+		          "type": "none",
+		          "amount": 1,
+		          "target": "self"
+		        }
+		      },
+  		    {
+  		      "condition": "q.is_item_name_any('slot.hotbar', 0, 'bw:glass_vial')",
+  		      "randomize": [
+  		        {
+  		          "weight": 10,
+  		          "sequence": [
+  		            {
+  		              "sequence": [
+  		                {
+      		              "run_command": {
+      		                "command": [
+      		                  "function athame_passive"
+      		                ]
+      		              }
+  		                }
+  		              ]
+  		            }
+  		          ]
+  		        },
+  		        {
+  		          "weight": 10
+  		        }
+  		      ]
+  		    },
+  		    {
+  		      "condition": "!q.is_item_name_any('slot.hotbar', 0, 'bw:glass_vial')",
+  		      "randomize": [
+  		        {
+  		          "weight": 5,
+  		          "sequence": [
+  		            {
+  		              "sequence": [
+  		                {
+      		              "run_command": {
+      		                "command": [
+      		                  "function athame_hostile"
+      		                ]
+      		              }
+  		                }
+  		              ]
+  		            }
+  		          ]
+  		        },
+  		        {
+  		          "weight": 15
+  		        }
+  		      ]
+  		    }
+		    ]
+		  },
+		  "break": {
+		    "sequence": [
+		      {
+		        "damage": {
+		          "type": "none",
+		          "amount": 1,
+		          "target": "self"
+		        }
+		      }
+		    ]
+		  }
+		}
+	}
+}

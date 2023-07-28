@@ -1,0 +1,49 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:ironblade_talisman"
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": false,
+			"minecraft:foil": false,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:on_use": {
+			  "on_use": {
+			    "event": "bw:take_soul"
+			  }
+			},
+			"minecraft:icon": {
+				"texture": "talisman_ironblade"
+			}
+		},
+		"events": {
+		  "bw:take_soul": {
+		    "sequence": [
+		      {
+		        "condition": "q.count(query.get_nearby_entities(4, 'minecraft:iron_golem')) > 0",
+		        "run_command": {
+		          "command": [
+		            "kill @e[type=minecraft:iron_golem, r=4, c=1]",
+		            "particle bw:soul_absorb ~~~",
+		            "playsound beacon.activate @a[r=8] ~~~ 0.5",
+		            "loot replace entity @p slot.weapon.mainhand 0 loot \"talismans/ironblade\""
+		          ],
+		          "target": "holder"
+		        }
+  		    },
+		      {
+		        "condition": "!q.count(query.get_nearby_entities(4, 'minecraft:iron_golem')) > 0",
+		        "run_command": {
+		          "command": [
+		            "tellraw @s {\"rawtext\":[{\"text\":\"There is no suitable soul in the vicinity to activate this talisman.\"}]}"
+		          ],
+		          "target": "holder"
+		        }
+  		    }
+		    ]
+		  }
+		}
+	}
+}

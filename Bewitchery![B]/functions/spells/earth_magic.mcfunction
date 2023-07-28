@@ -1,0 +1,7 @@
+loot give @s loot "spellbooks/aura_of_prosperity"
+loot give @s loot "spellbooks/barkflesh"
+loot give @s loot "spellbooks/earth_dome"
+loot give @s loot "spellbooks/false_hearts"
+loot give @s loot "spellbooks/flower_absorption"
+loot give @s loot "spellbooks/poison"
+loot give @s loot "spellbooks/rejuvify"

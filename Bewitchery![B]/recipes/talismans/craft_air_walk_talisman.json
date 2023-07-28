@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bw:craft_air_walk_talisman"
+    },
+    "tags": [
+      "witch_altar"
+    ],
+    "pattern": [
+      "/&",
+      "#0"
+    ],
+    "key": {
+      "#": {
+        "item": "bw:earth_imbued_quartz"
+      },
+      "0": {
+        "item": "bw:bone_talisman"
+      },
+      "/": {
+        "item": "bw:sky_imbued_quartz"
+      },
+      "&": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "bw:air_walk_talisman"
+    }
+  }
+}

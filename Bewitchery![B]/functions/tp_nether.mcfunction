@@ -1,0 +1,1 @@
+execute as @e[r=3] in nether run tp @s ~~~

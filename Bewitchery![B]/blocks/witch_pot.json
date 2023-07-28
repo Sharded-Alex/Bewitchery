@@ -1,0 +1,2355 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "bw:witch_pot",
+      "properties": {
+        "bw:recipe": [0,1,2,3],
+        "bw:contents": [0,1],
+        "bw:completion": [0,1,2,3],
+        "bw:vial_potion": [0,1,2,3,4,5,6,7],
+        "bw:elixir": [0,1,2,3,4],
+        "bw:infusion": [0,1,2,3,4],
+        "bw:brewing": [false, true],
+        "bw:crystal": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "iron_cauldron",
+          "render_method": "alpha_test"
+        }
+      },
+			"minecraft:creative_category": {
+				"category": "items"
+			},
+      "minecraft:geometry": "geometry.spicy_cauldron",
+      "minecraft:rotation": [0, 0, 0],
+      "minecraft:selection_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 16, 16]
+      },
+     "minecraft:collision_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:on_interact": {
+        "event": "bw:input_ingredient",
+        "target": "self"
+      },
+	    "minecraft:explosion_resistance": 2,
+      "minecraft:destroy_time": 10,
+      "minecraft:breathability": "air",
+      "minecraft:friction": 0.6,
+      "minecraft:block_light_filter": 0.0,
+      "minecraft:block_light_emission": 0.0
+    },
+    "events": {
+      "bw:smoke": {
+        "run_command": {
+          "command": [
+            "particle bw:witch_pot_ambient_smoke ~~0.75~"
+          ]
+        }
+      },
+      "bw:brew": {
+        "sequence": [
+          {
+            "condition": "q.block_property('bw:vial_potion') >= 1 && q.block_property('bw:recipe') == 1",
+            "set_block_property": {
+              "bw:completion": 1,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') >= 1 && q.block_property('bw:recipe') == 2",
+            "set_block_property": {
+              "bw:completion": 2,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') >= 1 && q.block_property('bw:recipe') == 3",
+            "set_block_property": {
+              "bw:completion": 3,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_finished_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') >= 1 && q.block_property('bw:recipe') == 1",
+            "set_block_property": {
+              "bw:completion": 1,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:elixir') >= 1 && q.block_property('bw:recipe') == 2",
+            "set_block_property": {
+              "bw:completion": 2,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:elixir') >= 1 && q.block_property('bw:recipe') == 3",
+            "set_block_property": {
+              "bw:completion": 3,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_finished_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') >= 1 && q.block_property('bw:recipe') == 1",
+            "set_block_property": {
+              "bw:completion": 1,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:infusion') >= 1 && q.block_property('bw:recipe') == 2",
+            "set_block_property": {
+              "bw:completion": 2,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:infusion') >= 1 && q.block_property('bw:recipe') == 3",
+            "set_block_property": {
+              "bw:completion": 3,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_finished_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          
+          {
+            "condition": "q.block_property('bw:crystal') == true && q.block_property('bw:recipe') == 1",
+            "set_block_property": {
+              "bw:completion": 1,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:crystal') == true && q.block_property('bw:vial_potion') > 0 && q.block_property('bw:recipe') == 2",
+            "set_block_property": {
+              "bw:completion": 2,
+              "bw:brewing": false
+            },
+            "run_command": {
+              "command": [
+                "particle bw:witch_pot_boiled_smoke",
+                "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+              ]
+            }
+          },
+          {
+            "condition": "q.block_property('bw:crystal') == true && q.block_property('bw:recipe') == 3",
+            "sequence": [
+              {
+                "condition": "q.block_property('bw:vial_potion') == 1",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/earth_crystals\""
+                  ]
+                }
+              },
+              {
+                "condition": "q.block_property('bw:vial_potion') == 2",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/lunar_crystals\""
+                  ]
+                }
+              },
+              {
+                "condition": "q.block_property('bw:vial_potion') == 3",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/solar_crystals\""
+                  ]
+                }
+              },
+              {
+                "condition": "q.block_property('bw:vial_potion') == 4",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/sky_crystals\""
+                  ]
+                }
+              },
+              {
+                "condition": "q.block_property('bw:vial_potion') == 5",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/ender_crystals\""
+                  ]
+                }
+              },
+              {
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0,
+                  "bw:crystal": false,
+                  "bw:brewing": false
+                },
+                "run_command": {
+                  "command": [
+                    "particle bw:witch_pot_boiled_smoke",
+                    "playsound random.potion.brewed @a[r=6] ~~~ 0.5"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "bw:input_ingredient": {
+        "sequence": [
+          {
+            "condition": "q.block_property('bw:contents') == 0",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:water_bucket')",
+                "set_block_property": {
+                  "bw:contents": 1
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound bucket.fill_water @a[r=6] ~~~ 0.5"
+                  ]
+                }
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:water_bucket')",
+                "run_command": {
+                  "command": [
+                    "loot replace entity @s slot.weapon.mainhand 0 loot \"potions/bucket\""
+                  ],
+                  "target": "other"
+                }
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 0 && q.block_property('bw:elixir') == 0 && q.block_property('bw:infusion') == 0 && q.block_property('bw:recipe') == 0",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bucket')",
+                "set_block_property": {
+                  "bw:contents": 0
+                },
+                "run_command": {
+                  "command": [
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                }
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:bucket')",
+                "run_command": {
+                  "command": [
+                    "loot replace entity @s slot.weapon.mainhand 0 loot \"potions/full_bucket\""
+                  ],
+                  "target": "other"
+                }
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 0 && q.block_property('bw:elixir') == 0 && q.block_property('bw:infusion') == 0 && q.block_property('bw:crystal') == 0 && q.block_property('bw:recipe') == 0",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:crushed_fern')",
+                "set_block_property": {
+                  "bw:vial_potion": 1,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:cornflower_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 2,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:gold_ingot')",
+                "set_block_property": {
+                  "bw:vial_potion": 3,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:emerald_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 4,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:blue_orchid_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 5,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:natural_ash')",
+                "set_block_property": {
+                  "bw:vial_potion": 6,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:oxeye_daisy_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 7,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:soul_fragment')",
+                "set_block_property": {
+                  "bw:elixir": 1,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:seagrass')",
+                "set_block_property": {
+                  "bw:elixir": 2,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sapling')",
+                "set_block_property": {
+                  "bw:elixir": 3,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:dandelion_dust')",
+                "set_block_property": {
+                  "bw:elixir": 4,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:blaze_rod')",
+                "set_block_property": {
+                  "bw:infusion": 1,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:emerald')",
+                "set_block_property": {
+                  "bw:infusion": 2,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:copper_ingot')",
+                "set_block_property": {
+                  "bw:infusion": 3,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:popped_chorus_fruit')",
+                "set_block_property": {
+                  "bw:infusion": 4,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:amethyst_shard')",
+                "set_block_property": {
+                  "bw:crystal": true,
+                  "bw:recipe": 1,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 1 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:nautilus_shell')",
+                "set_block_property": {
+                  "bw:vial_potion": 1,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 1 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:phantom_membrane')",
+                "set_block_property": {
+                  "bw:vial_potion": 1,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5",
+                    "scoreboard players add @s bw:lunarAff 2"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 2 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sugar')",
+                "set_block_property": {
+                  "bw:vial_potion": 2,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 2 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sugar')",
+                "set_block_property": {
+                  "bw:vial_potion": 2,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 3 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:iron_nugget')",
+                "set_block_property": {
+                  "bw:vial_potion": 3,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 3 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:oxeye_daisy_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 3,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 4 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:dandelion_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 4,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 4 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:blue_orchid_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 4,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 5 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:cornflower_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 5,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 5 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:feather')",
+                "set_block_property": {
+                  "bw:vial_potion": 5,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 6 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:poppy_dust')",
+                "set_block_property": {
+                  "bw:vial_potion": 6,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 6 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:ink_sac')",
+                "set_block_property": {
+                  "bw:vial_potion": 6,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 7 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:gold_nugget')",
+                "set_block_property": {
+                  "bw:vial_potion": 7,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 7 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:blood_vial')",
+                "set_block_property": {
+                  "bw:vial_potion": 7,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5",
+                    "loot spawn ~~1~ loot \"potions/vial\""
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 1 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:rotten_flesh')",
+                "set_block_property": {
+                  "bw:elixir": 1,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 1 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:soul_sand')",
+                "set_block_property": {
+                  "bw:elixir": 1,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 2 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:seagrass')",
+                "set_block_property": {
+                  "bw:elixir": 2,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 2 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:kelp')",
+                "set_block_property": {
+                  "bw:elixir": 2,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 3 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:crushed_fern')",
+                "set_block_property": {
+                  "bw:elixir": 3,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 3 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:red_mushroom') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:brown_mushroom')",
+                "set_block_property": {
+                  "bw:elixir": 3,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 4 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:blaze_powder')",
+                "set_block_property": {
+                  "bw:elixir": 4,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 4 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:fermented_spider_eye')",
+                "set_block_property": {
+                  "bw:elixir": 4,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 1 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:coal_dust')",
+                "set_block_property": {
+                  "bw:infusion": 1,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 1 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glowstone_dust')",
+                "set_block_property": {
+                  "bw:infusion": 1,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 1 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glowstone_dust')",
+                "run_command": {
+                  "command": [
+                    "scoreboard players add @s bw:solarAff 1"
+                  ],
+                  "target": "player"
+                }
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 2 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sapling')",
+                "set_block_property": {
+                  "bw:infusion": 2,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 2 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:spore_blossom')",
+                "set_block_property": {
+                  "bw:infusion": 2,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 2 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:spore_blossom')",
+                "run_command": {
+                  "command": [
+                    "scoreboard players add @s bw:earthAff 1"
+                  ],
+                  "target": "player"
+                }
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 3 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:overworld_mana')",
+                "set_block_property": {
+                  "bw:infusion": 3,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5",
+                    "loot spawn ~~1~ loot \"potions/vial\""
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 3 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:phantom_membrane')",
+                "set_block_property": {
+                  "bw:infusion": 3,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 3 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:phantom_membrane')",
+                "run_command": {
+                  "command": [
+                    "scoreboard players add @s bw:skyAff 1"
+                  ],
+                  "target": "player"
+                }
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 4 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:end_stone')",
+                "set_block_property": {
+                  "bw:infusion": 4,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 4 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              {
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:shulker_shell')",
+                "set_block_property": {
+                  "bw:infusion": 4,
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 4 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:shulker_shell')",
+                "run_command": {
+                  "command": [
+                    "scoreboard players add @s bw:enderAff 1"
+                  ],
+                  "target": "player"
+                }
+              }
+            ]
+          },
+          
+          
+          {
+            "condition": "q.block_property('bw:crystal') == true && q.block_property('bw:vial_potion') == 0 && q.block_property('bw:completion') == 1 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sapling') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:emerald')) || ((q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:coal') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:charcoal')) || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:diamond'))",
+                "set_block_property": {
+                  "bw:vial_potion": 1,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sapling') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:emerald')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:seeds') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:diamond'))",
+                "randomize": [
+                  {
+                    "weight":25
+                  },
+                  {
+                    "weight":75,
+                    "run_command": {
+                      "command": [
+                        "scoreboard players add @s bw:earthAff 2"
+                      ],
+                      "target": "player"
+                    }
+                  }
+                ]
+              },
+              
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:nautilus_shell') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:prismarine_shard')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:kelp') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:scute'))",
+                "set_block_property": {
+                  "bw:vial_potion": 2,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:nautilus_shell') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:prismarine_shard')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:kelp') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:scute'))",
+                "randomize": [
+                  {
+                    "weight":25
+                  },
+                  {
+                    "weight":75,
+                    "run_command": {
+                      "command": [
+                        "scoreboard players add @s bw:lunarAff 2"
+                      ],
+                      "target": "player"
+                    }
+                  }
+                ]
+              },
+              
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:blaze_powder') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glowstone_dust')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:magma_cream') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:gunpowder'))",
+                "set_block_property": {
+                  "bw:vial_potion": 3,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:blaze_powder') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glowstone_dust')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:magma_cream') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:gunpowder'))",
+                "randomize": [
+                  {
+                    "weight":25
+                  },
+                  {
+                    "weight":75,
+                    "run_command": { 
+                      "command": [
+                        "scoreboard players add @s bw:solarAff 2"
+                      ],
+                      "target": "player"
+                    }
+                  }
+                ]
+              },
+              
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:phantom_membrane') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:feather')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:rabbit_foot') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:string'))",
+                "set_block_property": {
+                  "bw:vial_potion": 4,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:phantom_membrane') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:feather')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:rabbit_foot') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:string'))",
+                "randomize": [
+                  {
+                    "weight":25
+                  },
+                  {
+                    "weight":75,
+                    "run_command": {
+                      "command": [
+                        "scoreboard players add @s bw:skyAff 2"
+                      ],
+                      "target": "player"
+                    }
+                  }
+                ]
+              },
+              
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:obsidian_dust') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:ender_pearl')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:shulker_shell') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:chorus_fruit'))",
+                "set_block_property": {
+                  "bw:vial_potion": 5,
+                  "bw:recipe": 2,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:obsidian_dust') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:ender_pearl')) || (q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:shulker_shell') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:chorus_fruit'))",
+                "randomize": [
+                  {
+                    "weight":25
+                  },
+                  {
+                    "weight":75,
+                    "run_command": { 
+                      "command": [
+                        "scoreboard players add @s bw:enderAff 2"
+                      ],
+                      "target": "player"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:crystal') == true && q.block_property('bw:vial_potion') > 0 && q.block_property('bw:completion') == 2 && q.block_property('bw:recipe') == 2",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:quartz')",
+                "set_block_property": {
+                  "bw:recipe": 3,
+                  "bw:brewing": true
+                },
+                "run_command": {
+                  "command": [
+                    "particle minecraft:water_splash_particle ~~0.75~",
+                    "playsound random.splash @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 1 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/moon_water\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 1 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/moon_water\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 2 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/agility_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 2 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/agility_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 3 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/defence_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 3 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/defence_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 4 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/haste_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 4 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/haste_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 5 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/levitation_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 5 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/levitation_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 6 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/night_stalk_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 6 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/night_stalk_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:vial_potion') == 7 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/vitality_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:vial_potion') == 7 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:vial_potion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/vitality_vial\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 1 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/soul_bottle\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sand')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/soulSand\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:dirt')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/soulSoil\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 1 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:elixir": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/soul_bottle\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sand')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/soulSand\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:dirt')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/soulSoil\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 2 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/conduit_elixir\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:prismarine_shard')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/seaHeart\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 2 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:elixir": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/conduit_elixir\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:prismarine_shard')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/seaHeart\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 3 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/forest_elixir\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:red_flower') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:yellow_flower')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/flowers\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "(q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:redstone') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sugar') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:gunpowder') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glowstone_dust'))",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/vanillaDusts\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.equipped_item_any_tag('slot.weapon.mainhand', 'bw:dust')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/flowerDusts\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.equipped_item_any_tag('slot.weapon.mainhand', 'bw:mineralDust')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/mineralDusts\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              },
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:sapling') || q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:cherry_sapling')",
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"transmute/saplings\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 3 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:elixir": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/forest_elixir\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:elixir') == 4 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/holy_water\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:elixir') == 4 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glass_bottle')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:elixir": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/holy_water\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 1 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/solar_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 1 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:infusion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/solar_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 2 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/earth_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 2 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:infusion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/earth_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 3 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/sky_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 3 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:infusion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/sky_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          
+          {
+            "condition": "q.block_property('bw:infusion') == 4 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') > 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": "(q.block_property('bw:recipe') - 1)"
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/ender_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.block_property('bw:infusion') == 4 && q.block_property('bw:completion') == 3 && q.block_property('bw:recipe') == 1",
+            "sequence": [
+              { 
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:glass_vial')",
+                "set_block_property": {
+                  "bw:recipe": 0,
+                  "bw:completion": 0,
+                  "bw:contents": 0,
+                  "bw:infusion": 0
+                },
+                "run_command": {
+                  "command": [
+                    "loot spawn ~~1~ loot \"potions/ender_infusion\"",
+                    "playsound bucket.empty_water @a[r=6] ~~~ 0.5"
+                  ]
+                },
+                "decrement_stack": {}
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_property('bw:brewing') == true",
+        "components": {
+          "minecraft:queued_ticking": {
+            "looping": true,
+            "interval_range": [80, 120],
+            "on_tick": {
+              "event": "bw:brew"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:brewing') == false && q.block_property('bw:contents') == 1",
+        "components": {
+          "minecraft:queued_ticking": {
+            "looping": true,
+            "interval_range": [40, 100],
+            "on_tick": {
+              "event": "bw:smoke"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_iron_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 1 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_lunar_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 2 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_agility_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 3 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_defence_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 4 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_haste_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 5 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_levitation_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 6 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_night_stalk_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:vial_potion') == 7 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_vitality_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:elixir') == 1 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_soul_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:elixir') == 2 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_conduit_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:elixir') == 3 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_forest_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:elixir') == 4 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_holy_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:infusion') == 1 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_solar_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:infusion') == 2 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_earth_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:infusion') == 3 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_sky_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_property('bw:contents') == 1 && q.block_property('bw:infusion') == 4 && q.block_property('bw:completion') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_ender_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

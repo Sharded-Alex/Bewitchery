@@ -1,0 +1,35 @@
+{
+  "namespace": "grimoire",
+    
+  "dino_image": {
+    "type": "image",
+    "size": ["100%", "100%"],
+    "texture": "textures/ui/grimoire_frame",
+    "alpha": 1.0,
+    "layer": 50
+  },
+  "main_form_panel": {
+    "type": "stack_panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "orientation": "vertical",
+    "layer": 1,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "grimoire@grimoire.cover_image": {
+          "$title_text": "#title_text",
+          "variables": [
+            {
+              "requires": "($title_text = 'Bewitched Grimoire')",
+              "$dino_name": "Bewitched Grimoire"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

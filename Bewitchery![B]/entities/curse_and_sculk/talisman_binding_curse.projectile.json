@@ -1,0 +1,93 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "bw:talisman_binding_curse",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": {
+        "animate": [
+          "particle_trail",
+          "collision_burst"
+        ]
+      },
+      "animations": {
+        "particle_trail": "controller.animation.trails",
+        "collision_burst": "controller.animation.curses"
+      }
+    },
+    "component_groups": {
+      "kill_thyself": {
+        "minecraft:instant_despawn": {}
+      },
+      
+      "particle_burst": {
+        "minecraft:skin_id": {
+          "value": 5
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:type_family": {
+        "family": [ "spell", "curse_spell" ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "burst",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 0.99
+          }
+        },
+        "power": 1.6,
+        "gravity": 0.0,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "anchor": 1,
+        "offset": [0.1, -0.1, 0]
+      },
+      "minecraft:skin_id": {
+        "value": 0
+      },
+      "minecraft:physics": {},
+      "minecraft:scale": {
+        "value": 0.5
+      }
+    },
+    "events": {
+      "death": {
+        "remove": {
+          "component_groups": [
+            "particle_burst"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "kill_thyself"
+          ]
+        }
+      },
+      "burst": {
+        "add": {
+          "component_groups": [
+            "particle_burst"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 5,
+        "max": 8
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:red_flower",
+          "weight": 35,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 8
+              }
+            },
+            {
+              "function": "set_data",
+              "data": {
+                "min": 0,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:yellow_flower",
+          "weight": 35,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            },
+            {
+              "function": "set_data",
+              "data": {
+                "min": 0,
+                "max": 9
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:glass_vial",
+          "weight": 35,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:vial_potion_vitality",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:vial_potion_haste",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:moon_water",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:slime_ball",
+          "weight": 25,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:spider_eye",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ink_sac",
+          "weight": 30,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:torn_page_lunar",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:torn_page_ender",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bw:torn_page_solar",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "bw:spell_journal.blind",
+          "weight": 30
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.wither",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.true_darkness",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.bad_luck",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.fatigue",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.fading_light",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.halted_vitality",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.lunar_binding",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.talisman_binding",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.primal_binding",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.hydrophobia",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.psychosis",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.sonic_blast",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "bw:spell_journal.famine",
+          "weight": 15
+        }
+      ]
+    }
+  ]
+}
