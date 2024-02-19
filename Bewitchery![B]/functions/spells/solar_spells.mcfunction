@@ -1,8 +1,0 @@
-loot give @s loot "spellbooks/fireball"
-loot give @s loot "spellbooks/resist_fire"
-loot give @s loot "spellbooks/small_sun"
-loot give @s loot "spellbooks/solar_ring"
-loot give @s loot "spellbooks/solar_flare"
-loot give @s loot "spellbooks/solar_bolt"
-loot give @s loot "spellbooks/warming_bolt"
-loot give @s loot "spellbooks/warming_aura"

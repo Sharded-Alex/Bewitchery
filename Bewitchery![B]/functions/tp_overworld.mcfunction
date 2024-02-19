@@ -1,1 +1,0 @@
-execute as @e[r=3] in overworld run tp @s ~~~

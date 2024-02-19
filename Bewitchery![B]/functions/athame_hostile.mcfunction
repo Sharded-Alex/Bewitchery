@@ -1,5 +1,0 @@
-execute as @e[type=zombie,r=4,c=1] run loot spawn ~~1~ loot "soul_fragment"
-execute as @e[type=skeleton,r=4,c=1] run loot spawn ~~1~ loot "soul_fragment"
-execute as @e[type=husk,r=4,c=1] run loot spawn ~~1~ loot "soul_fragment"
-execute as @e[type=drowned,r=4,c=1] run loot spawn ~~1~ loot "soul_fragment"
-execute as @e[type=stray,r=4,c=1] run loot spawn ~~1~ loot "soul_fragment"
