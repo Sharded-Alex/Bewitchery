@@ -1,0 +1,108 @@
+{
+	"minecraft:entity": {
+		"format_version": "1.16.0",
+		"description": {
+			"identifier": "bw:flying_broom",
+			"is_summonable": true,
+			"is_spawnable": false,
+			"is_experimental": false
+		},
+		
+		"component_groups": {
+		  "bw:despawn": {
+		    "minecraft:instant_despawn": {}
+		  }
+		},
+		
+		"components": {
+			"minecraft:behavior.rise_to_liquid_level": {
+				"priority": 0,
+				"liquid_y_offset": 0.5,
+				"rise_delta": 0.05,
+				"sink_delta": 0.05
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.25
+			},
+      "minecraft:lava_movement": {
+        "value": 0.25
+      },
+			"minecraft:rideable": {
+				"seat_count": 2,
+				"family_types": ["player", "cat", "ocelot", "frog", "fox", "chicken", "familiar"],
+				"interact_text": "action.interact.ride_broom",
+				"pull_in_entities": true,
+				"controlling_seat": 1,
+				"seats": [
+  				{
+  					"position": [0.0, 0.45, 0.0],
+  					"min_rider_count": 0,
+  					"max_rider_count": 1
+  				},
+  				{
+  					"position": [0, 0.45, 0.15],
+  					"min_rider_count": 2,
+  					"max_rider_count": 2
+  				},
+  				{
+  					"position": [0, 0.75, -0.8],
+  					"min_rider_count": 2,
+  					"max_rider_count": 2
+  				}
+				]
+			},
+			"minecraft:input_ground_controlled": {},
+      "minecraft:can_power_jump": {},
+      "minecraft:horse.jump_strength": {
+        "value": {
+          "range_min": 0.4,
+          "range_max": 1.0
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "fall",
+          "deals_damage": false
+        }
+      },
+      "minecraft:behavior.float": {
+        "priority": 1
+      },
+		  "minecraft:skin_id": {
+		    "value": 0
+		  },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.hover": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_fly": {},
+			"minecraft:health": {
+				"value": 20,
+				"max": 20
+			},
+			"minecraft:movement": {
+        "value": 0.8
+      },
+			"minecraft:collision_box": {
+				"width": 0.35,
+				"height": 0.35
+			},
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": true
+      }
+		},
+		"events": {
+		  "despawn": {
+		    "add": {
+		      "component_groups": [
+		        "bw:despawn"
+		      ]
+		    }
+		  }
+		}
+	}
+}

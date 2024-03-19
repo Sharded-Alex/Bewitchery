@@ -1,0 +1,277 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "bw:diorite_runic_slate",
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      },
+    	"states": {
+    		"bw:white_glyphs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    		"bw:center_glyph": [false, true],
+    		"bw:pulsing": [false, true],
+    		"bw:pause": [false, true]
+    	},
+    	"menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.ritual_slates"
+      }
+    },
+    "components": {
+			"tag:bw:blank_slate": {},
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "diorite_blank_slate",
+          "render_method": "alpha_test",
+          "face_dimming": false,
+          "ambient_occlusion": true
+        }
+      },
+      "minecraft:geometry": "geometry.ritual_slate",
+      "minecraft:selection_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 4, 16]
+      },
+      "minecraft:collision_box": {
+        "origin": [-8,0,-8],
+        "size": [16, 4, 16]
+      },
+      "minecraft:on_interact": {
+        "event": "bw:add_glyph",
+        "target": "self"
+      },
+	    "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 20
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:flammable": false,
+      "minecraft:breathability": "solid",
+      "minecraft:friction": 0.4,
+      "minecraft:map_color": "#808080",
+      "minecraft:light_dampening": 0,
+      "minecraft:light_emission": 0
+    },
+    "events": {
+      "bw:add_glyph": {
+        "sequence": [
+          {
+            "condition": "q.block_state('bw:center_glyph') == 0 && q.block_state('bw:white_glyphs') == 0",
+            "sequence": [
+              {
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:red_chalk')",
+                "set_block_state": {
+                  "bw:center_glyph": true
+                },
+                "decrement_stack": {}
+              },
+              {
+                "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'bw:coal_dust')",
+                "set_block_state": {
+                  "bw:white_glyphs": "Math.random(1, 9)"
+                },
+                "decrement_stack": {}
+              }
+            ]
+          },
+          {
+            "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:white_wool')",
+            "set_block_state": {
+              "bw:center_glyph": false,
+              "bw:pulsing": false,
+              "bw:white_glyphs": 0
+            }
+          },
+          {
+            "condition": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:shears')",
+            "sequence": [
+              {
+                "condition": "q.block_state('bw:white_glyphs') > 0 && q.block_state('bw:white_glyphs') < 9",
+                "set_block_state": {
+                  "bw:white_glyphs": "q.block_state('bw:white_glyphs') + 1"
+                }
+              },
+              {
+                "condition": "q.block_state('bw:white_glyphs') == 9",
+                "set_block_state": {
+                  "bw:white_glyphs": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "bw:castWard": {
+        "run_command": {
+          "command": [
+            "scriptevent bw:castWard"
+          ]
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('bw:pulsing') == true",
+        "components": {
+          "minecraft:queued_ticking": {
+            "looping": true,
+            "interval_range": [20, 20],
+            "on_tick": {
+              "event": "bw:castWard"
+            }
+          },
+          "tag:bw:pulsing": {}
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 0, 0] }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 90, 0] }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 180, 0] }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, -90, 0] }
+        }
+      },
+      
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_candela",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_celestia",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_eclipsis",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_falleus",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_ignis",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_lampen",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_perthus",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_staria",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:white_glyphs') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_triangula",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:white_slate": {}
+        }
+      },
+      {
+        "condition": "q.block_state('bw:center_glyph') == true",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "diorite_red_glyph",
+              "render_method": "alpha_test"
+            }
+          },
+          "tag:bw:red_slate": {}
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.trails": {
+      "states": {
+        "default": {
+          "transitions": [ { "walking": "(0.1)" } ],
+          "on_entry": [ "/function bwProjectile_particles" ]
+        },
+        "walking": {
+          "transitions": [ { "default": "(0.1)" } ],
+          "on_entry": [ "/function bwProjectile_particles" ]
+        }
+      }
+    },
+    "controller.animation.bursts": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "blaze_fire_burst": "q.skin_id == 1"
+            },
+            {
+              "icy_burst": "q.skin_id == 2"
+            },
+            {
+              "hail_burst": "q.skin_id == 3"
+            },
+            {
+              "water_burst": "q.skin_id == 4"
+            },
+            {
+              "missile_burst": "q.skin_id == 5"
+            }
+          ]
+        },
+        "blaze_fire_burst": {
+          "on_entry": [
+            "/particle bw:blaze_fire_burst ~~~",
+            "@s death"
+          ]
+        },
+        "icy_burst": {
+          "on_entry": [
+            "/particle bw:snow_burst ~~~",
+            "/scriptevent bw:proj_activate"
+          ]
+        },
+        "hail_burst": {
+          "on_entry": [
+            "/particle bw:hail_burst ~~~",
+            "/scriptevent bw:proj_activate"
+          ]
+        },
+        "water_burst": {
+          "on_entry": [
+            "/particle bw:bubble_burst ~~~",
+            "/scriptevent bw:proj_activate"
+          ]
+        },
+        "missile_burst": {
+          "on_entry": [
+            "/scriptevent bw:proj_activate"
+          ]
+        }
+      }
+    }
+  }
+}

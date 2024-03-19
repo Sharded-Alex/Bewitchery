@@ -1,0 +1,87 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:block": {
+    "description": {
+      "identifier": "bw:witch_pot",
+      "states": {
+        "bw:filled": [false, true],
+        "bw:primary": [0, 1, 2, 3],
+        "bw:primaryTwo": [0, 1, 2, 3, 4, 5, 6, 7],
+        "bw:secondary": [0, 1, 2, 3],
+        "bw:secondaryTwo": [0, 1, 2, 3, 4, 5, 6, 7],
+        "bw:tertiary": [0, 1, 2, 3],
+        "bw:tertiaryTwo": [0, 1, 2, 3, 4, 5, 6, 7]
+      }
+    },
+    "components": {
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "iron_cauldron",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:geometry": "geometry.spicy_cauldron",
+      "minecraft:selection_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 16, 16]
+      },
+     "minecraft:collision_box": {
+        "origin": [-8, 0,-8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:on_interact": {
+        "event": "bw:input_ingredient",
+        "target": "self"
+      }
+    },
+    "events": {
+      "bw:brew": {
+        "run_command": {
+          "command": [
+            "scriptevent bw:brewParticles"
+          ]
+        }
+      },
+      "bw:input_ingredient": {}
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('bw:filled') == true",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "filled_iron_cauldron",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      
+      {
+        "condition": "(q.block_state('bw:primary') == 0 && q.block_state('bw:primaryTwo') > 0) || (q.block_state('bw:primary') > 0 && q.block_state('bw:primaryTwo') >= 0)",
+        "components": {
+          "minecraft:queued_ticking": {
+            "looping": true,
+            "interval_range": [20, 20],
+            "on_tick": {
+              "event": "bw:brew"
+            }
+          },
+          "tag:bw:first_ingredient": {}
+        }
+      },
+      {
+        "condition": "(q.block_state('bw:secondary') == 0 && q.block_state('bw:secondaryTwo') > 0) || (q.block_state('bw:secondary') > 0 && q.block_state('bw:secondaryTwo') >= 0)",
+        "components": {
+          "tag:bw:second_ingredient": {}
+        }
+      },
+      {
+        "condition": "(q.block_state('bw:tertiary') == 0 && q.block_state('bw:tertiaryTwo') > 0) || (q.block_state('bw:tertiary') > 0 && q.block_state('bw:tertiaryTwo') >= 0)",
+        "components": {
+          "tag:bw:third_ingredient": {}
+        }
+      }
+    ]
+  }
+}
