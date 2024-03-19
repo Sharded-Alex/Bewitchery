@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bw:witch_pot_recipe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "# #",
+      "*#*",
+      "* *"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:iron_ingot"
+      },
+      "*": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "item": "bw:witch_pot"
+    }
+  }
+}
