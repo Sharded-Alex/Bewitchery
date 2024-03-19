@@ -1,0 +1,1 @@
+execute as @e[family=spell, family=projectile] if entity @e[family=spell, family=projectile, rm=0.6, r=2.5, c=1] run scriptevent spellCollision

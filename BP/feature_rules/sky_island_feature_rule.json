@@ -1,0 +1,56 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "bw:sky_island_feature_rule",
+			"places_feature": "bw:sky_island_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": [
+			  {
+			    "all_of": [
+			      {
+			        "test": "has_biome_tag",
+          		"operator": "==",
+          		"value": "plains"
+			      },
+			      {
+			        "any_of": [
+    			      {
+          				"test": "has_biome_tag",
+          				"operator": "==",
+          				"value": "overworld"
+    			      },
+    			      {
+          				"test": "has_biome_tag",
+          				"operator": "==",
+          				"value": "overworld_generation"
+    			      }
+			        ]
+			      }
+			    ]
+			  }
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": {
+				"extent": [0, 16],
+				"distribution": "uniform"
+			},
+			"y": {
+			  "extent": [140, 200],
+			  "distribution": "uniform"
+			},
+			"z": {
+				"extent": [0, 16],
+				"distribution": "uniform"
+			},
+			"scatter_chance": {
+			  "numerator": 1,
+			  "denominator": 75
+			}
+		}
+	}
+}

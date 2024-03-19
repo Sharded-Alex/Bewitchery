@@ -1,0 +1,48 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "Salvanis Esa",
+              "pages": [
+                "The mixing of items to bring about magickal effects has been a practice that has been around for a long time. Now, there are Brewing Stands that do this for us.",
+                "Despite this, the ancient methods of Alchemy still exist. There is a certain complexity to these older methods, but I have found them to still be useful.",
+                "Within this tome, I hope to impress my preferred method of potioncraft unto you so that you may carry on the torch of alchemy.",
+                "§lThe Witch's Pot§r\n\nAlchemy requires the aid of a §2Witch's Pot§r. It cannot be crafted, but one can be conjured by sprinkling §2Natural Ash§r onto a normal Cauldron and waiting a few seconds.",
+                "All that is required to start brewing is to fill this pot up with a §1Water Bucket§r and put the actual ingredients in it. To \"cancel\" a potion, you can use an empty bucket. You won't get back the water though.",
+                "Each ingredient added to the Witch's Pot instantly brews, and this change can be seen through the sound and smoke emitted, but also through the color change.",
+                "§1A Witch's Pot can only take a maximum of 3 ingredients, and they cannot be removed once added§r so mix your ingredients carefully. Some of them are quite expensive.",
+                "§lBottling§r\n\nBottling a potion is simple. Interact with the Pot holding a Glass Bottle. This will give you a §2Strange Potion§r. These have 5 uses.",
+                "You can either drink or hit an entity with Strange Potions. The former will give the drinker the effects while the latter will give them to the hit entity. A spell §2offered by the Fae§r can even sling the contents of Strange Potions.",
+                "Using the potion in any of these ways will use up a charge. When the potion's uses reach 0, the Bottle will become empty.",
+                "To know what effects are in your Witch's Pot, simply taste it with a §2Wooden Spoon§r. These tools are designed to never give the taster the potion's effects so they are safe to use.",
+               "§lCrystalization§r\n\nEach ingredient is connected to one of the 5 primal elements in some way. When added to a Witch’s Pot, these elements can be extracted and crystallized.",
+               "The 5 Primal Energies are Solar, Lunar, Earth, Sky, and Ender. Each ingredient added to the pot will add its element as well. Their elements generally correspond with where they were collected, though not always.",
+               "Extracting these energies needs either Quartz or Amethyst Shards. Simply interact with the Pot with one in hand and the potion will be consumed and turned into Primal Crystals.",
+                "§lIngredients§r\n\nWhen doing alchemy, there are §2two§r effects a valid ingredient inherently has. These are their §2Main§r Effects and their §2Aid§r Effects.",
+                "§lMain effects§r are the group of potion effects that an ingredient gives §owhen it is the first ingredient to be thrown in the Witch's Pot§r.",
+                "§lAid effects§r define how an ingredient interacts with certain potion effects already within the Witch's Pot. This is broken down even further into §ltypes§r.",
+                "There are 4 types of Aid effects:\n- Extenders\n- Amplifiers\n- Corruptors\n- Nullifiers\nAll play an important part in the alchemical process.",
+                "§lExtenders§r increase the durations of certain potion effects.\n§lAmplifiers§r increase the power of certain potion effects up to a maximum of III.",
+                "§lCorruptors§r reverse certain potion effects and change them into others.\n§lNullifiers§r completely remove certain potion effects from the Witch's Pot altogether.",
+                "Aid effects will ONLY affect the potion effects specified by the ingredient, which can be a tricky thing to figure out.\n\nLuckily, you can find a variety of documented ingredients in the book, the §1Alchemist's Almanac§r."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§fAncient Alchemy§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

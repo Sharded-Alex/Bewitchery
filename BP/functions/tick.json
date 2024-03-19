@@ -1,0 +1,7 @@
+{
+  "values": [
+    "spell_scores",
+    "spell_effects",
+    "spell_collision"
+  ]
+}

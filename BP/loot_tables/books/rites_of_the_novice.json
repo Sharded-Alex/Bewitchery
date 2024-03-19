@@ -1,0 +1,39 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "R. L. Gevin",
+              "pages": [
+                "If you're reading this book, I'm guessing you've read its prequel, The Ceremonial Witch. If you haven't, what are you waiting for? If you have, please proceed.",
+                "This book will only talk about a few basic ceremonies but most are suited for Novice Witches so there is not much need to worry about being consumed by the Wylde.",
+                "§1Blessing of Rain§r\n§1Runic Circle:§r Urrican's Spiral\n§1Items:§r Crushed Cornflower, Sky Crystal, Crushed Fern, Water Bottle\n§1Fatigue Cost:§r §2Low§r",
+                "§oI beseech you, Aerials, Fae of the Winds! Sing your songs so the Skies may weep!§r\n\nConjures a rainstorm.",
+                "§1Calming of the Storm§r\n§1Runic Circle:§r Urrican's Spiral\n§1Items:§r Crushed Oxeye Daisy, Sky Crystal, Crushed Fern, Sunflower\n§1Fatigue Cost:§r §2Low§r",
+                "§oAerials, I ask that you blow these angry clouds away.§r\n\nDispels rain and thunderstorms.",
+                "§1Angering of the Skies§r\n§1Runic Circle:§r Urrican's Spiral\n§1Items:§r Crushed Dandelion, Crushed Cornflower, Sky Crystal, Crushed Fern, Copper Ingot\n§1Fatigue Cost:§r §6Medium§r",
+                "§oBlow and howl and rage, oh Skies. Make your power known through angered cries.§r\n\nConjures a thunderstorm.",
+                "§1Call of the Wild§r\n§1Runic Circle:§r Nathe's Formation\n§1Items:§r Wheat, Wheat Seeds, Ender Crystal\n§1Fatigue Cost:§r §2Low§r",
+                "§oAccept my offering and come forth! Please.§r\n\nTeleports nearby mobs into the circle. Excludes monsters.",
+                "§1Rite of Droughts§r\n§1Runic Circle:§r Urrican's Spiral\n§1Items:§r Sponge, Sand, Solar Crystal, Coal\n§1Fatigue Cost:§r §6Medium§r",
+                "§oI banish ye, Vodyan! And take your waters with you!§r\n\nRemoves water in the affected area."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§fRites of the Novice§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

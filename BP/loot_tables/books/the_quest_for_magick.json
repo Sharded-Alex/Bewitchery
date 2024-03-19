@@ -1,0 +1,32 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "Dwhyles859",
+              "pages": [
+                "\"The greatest enjoyment stems from the pursuit of magick\". This is the philosophy one should hold when studying the Occult Arts. Brewing, Binding, Banishing, none of these would be known without the Hebayan Witches that hunted the prey that is knowledge.",
+                "Thankfully, there is no need now to trade with the dangerous Witch of The Wylde for scraps of knowledge. Instead, exploration and reading can reveal a lot about witchcraft.",
+                "Throughout various structures, there lies numerous tomes with ancient knowledge. These books seem to be distributed through the use of some kind of Fae Magick. I suspect this to be the work of Hebaya and/or Equin.",
+                "However they are replicated, within them lies timeless research into the Occult. They will help you to brew the best potions, perform the most powerful ceremonies, and get the attention of the greatest within the Wylde.",
+                "Be warned: your safety is your own responsibility. You are very much able to poison yourself, magickally burn yourself into the Wylde, and gain the wrong kind of attention from the Fae so be careful."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§fThe Quest of Magick§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

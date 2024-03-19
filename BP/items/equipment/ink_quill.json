@@ -1,0 +1,49 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bw:ink_quill"
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": false,
+			"minecraft:foil": false,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:on_use": {
+			  "on_use": {
+			    "event": "research"
+			  }
+			},
+      "minecraft:cooldown":{
+        "category":"bw:ink_quill",
+        "duration": 2.5
+      },
+			"minecraft:icon": {
+				"texture": "ink_quill"
+			}
+		},
+		"events": {
+		  "research": {
+		    "sequence": [
+		      {
+		        "condition": "q.is_item_name_any('slot.hotbar', 0, 'minecraft:paper') && q.scoreboard('bw:Inspiration') > 0",
+	          "run_command": {
+	            "command": [
+	              "scriptevent occult:research",
+	              "scoreboard players remove @s bw:Inspiration 1"
+	            ]
+	          }
+  		    },
+		      {
+		        "condition": "q.is_item_name_any('slot.hotbar', 0, 'minecraft:paper') && q.scoreboard('bw:Inspiration') == 0",
+	          "run_command": {
+	            "command": [
+	              "tellraw @s {\"rawtext\": [{\"text\": \"§cYou lack the §6Inspiration§c to continue.§r\"}]}"
+	            ]
+	          }
+  		    }
+		    ]
+		  }
+		}
+	}
+}

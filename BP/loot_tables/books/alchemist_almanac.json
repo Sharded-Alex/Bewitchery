@@ -1,0 +1,45 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "Salvanis Esa",
+              "pages": [
+                "Alchemy is about exploration as much as it is about brewing. Experiment with ingredients, and craft medicines and poisons to learn. Experimentation is the chest that holds knowledge.",
+                "In my previous book, I explained the intricacies of alchemy. In this book, I will offer a list of common ingredients to get you completely off the ground. Keep in mind, this is not a full list.",
+                "§mCrushed Dandelion§r\n\nElement: Sky\n\n§1Main Effects§r\nSaturation I (0:02)\nSpeed I (1:00)",
+                "Aid Type: Amplifier\nAffects:\n- Speed\n- Haste\n- Levitation",
+                "§mCrushed Poppy§r\n\nElement: Solar\n\n§1Main Effects§r\nNight Vision I (1:00)\nNausea II (0:30)\nRegeneration I (0:30)",
+                "Aid Type: Extender (+1:00)\nAffects:\n- Absorption\n- Regeneration\n- Nausea\n- Weakness",
+                "§mCrushed Blue Orchid§r\n\nElement: Lunar\n\n§1Main Effects§r\nSaturation II (0:03)\nSlowness II (0:45)\nLevitation I (0:10)",
+                "Aid Type: Nullifier\nAffects:\n- Weakness\n- Slowness",
+                "§mFermented Spider Eye§r\n\nElement: Ender\n\n§1Main Effects§r\nPoison II (0:30)\nWeakness II (0:30)",
+                "Aid Type: Corruptor\nAffects:\n- Regeneration\n- Instant Health\n- Strength\n- Haste\n- Levitation",
+                "§mCrushed Cornflower§r\n\nElement: Sky\n\n§1Main Effects§r\nJump Boost II (1:00)\nWeakness I (1:00)\nSlow Falling (1:00)",
+                "Aid Type: Extender (+1:30)\nAffects:\n- Weakness\n- Slow Falling\n- Slowness\n- Mining Fatigue",
+                "§mCrushed Oxeye Daisy§r\n\nElement: Solar\n\n§1Main Effects§r\nRegeneration I (0:50)\nWeakness II (0:40)",
+                "Aid Type: Amplifier\nAffects:\n- Regeneration\n- Instant Health\n- Slowness\n- Weakness",
+                "§mWither Rose§r\n\nElement: Ender\n\n§1Main Effects§r\nWither I (0:15)\nInstant Damage I",
+                "Aid Type: Extender (+0:15)\nAffects:\n- Wither\n- Poison",
+                "§mCrushed Coal§r\n\nElement: Earth\n\n§1Main Effects§r\nBlindness I (0:45)\nDarkness I (0:30)",
+                "Aid Type: Nullifier\nAffects:\n- Wither\n- Poison"
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§fAlchemist's Almanac§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

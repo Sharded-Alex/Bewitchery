@@ -1,0 +1,24 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "bw:activated_fyreblood_talisman",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_lore",
+              "lore": [
+                "Lava is simply a hot bath with some spice!",
+                "",
+                "§r§dEquipped In Inventory Slots 1-3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

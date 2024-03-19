@@ -1,0 +1,54 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:written_book",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_book_contents",
+              "title": "",
+              "author": "R. L. Gevin",
+              "pages": [
+                "§2Ceremonial Magick§r can be powerful but it needs proper set-up. In this book, we'll look at the different parts of a ceremony/ritual/rite. We will also touch on different §1Runic Circles§r.",
+                "§lRitual Slates§r are semi-slabs of rock that can be inscribed with chalk. They are the skeleton of any ceremony, and need to be placed in specific spots for them to work. They come in different variants, all of which can be crafted in the Crafting Table.",
+                "§lChalk Powders§r are used to inscribe ritual slates. They come in two main colors, §2red§r and §2white§r. Red Chalk Powder marks the center-most rune of a ceremony. In any ceremony, there is only one runic slate with a red inscription.",
+                "White Chalk Powder marks all the supporting runic slates in a ceremony. This allows the Red Marked Slate (also known as the Central Slate) to tell what Runic Circle they form around it.",
+                "White Chalk Powder §cdoes not affect Diorite Ritual Slates§r. For those, Coal Dust must be used. After seeing them, I'm sure you'll figure out why.",
+                
+                "§lCandles§r are optional additions to a ceremony. They are normally used to increase their area of effect (where possible). Not all ceremonies can use candles, and different candles can do different things in different ceremonies.",
+                "Any true ceremony of witchcraft will detail what candle colors work for them.",
+                "§lRitual Items§r are an umbrella term for any item that is thrown in the center of a runic circle to help activate a ceremony. Depending on the ceremony being performed, these items may disappear.",
+                "Understand this though: §conly 1 of each item is needed for any ceremony you perform§r. Adding more will not help in any way, but the §2Wylde§r will still consume the stack of items as normal.",
+                "Finally, the §lStick§r is a completely mundane item. However, by interacting with the Central Slate, it activates whatever ceremony is being performed. As it is directing your intent into the ritual,",
+                "you can expect some amount of fatigue when doing this.",
+                "As a beginner, I'd also recommend staying away from ceremonies that inflict Medium to High amounts of fatigue because §cFatigue can kill§r. More on this topic can be found in the book, §1Elements of Magick§r.",
+                "",
+                "§lRunic Circles§r\n\nNow that you understand the different parts that make up a ceremony, we can cover all known Runic Circles.",
+                "\n\n\n\n       \n\n\n\n    Circle of Duality",
+                "This runic circle focuses on the powers of \"light\" and \"dark\" in the magickal sense. It is said that this circle can both cleanse and curse, though most don't remember the rituals.",
+                "\n\n\n\n     \n\n\n\n     Hebayan Mark",
+                "A runic circle named after the Hag of the Night and Witch of the Wylde. Despite this, this circle deals with enchantments and witch's bonds.",
+                "\n\n\n\n     \n\n\n\n\n    Nathe's Formation",
+                "This diagram is one of the more famous runic circles. It is used to summon entities, commune with the Fae, and travel vast distances in the blink of an eye.",
+                "\n\n\n\n       \n\n\n\n    Protective Circle",
+                "A simple sounding runic circle that is actually really powerful. It jumpstarts magickal ceremonies designed to ward an area.",
+                "\n\n\n\n       \n\n\n\n   Transmutation Crest",
+                "A ritual circle that pulls on the land to change the properties of the targeted item/block(s). It can also be used to dowse for the minerals and liquids of the earth.",
+                "\n\n\n\n       \n\n\n\n     Urrican's Spiral",
+                "The simplest diagram that exercises some power over the skies. Conjure storms and banish them using this ritual circle."
+              ]
+            },
+            {
+              "function": "set_name",
+              "name": "§r§fThe Ceremonial Witch§r"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
