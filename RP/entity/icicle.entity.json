@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "bw:hail_shard",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/entity/icicle"
+      },
+      "geometry": {
+        "default": "geometry.ice_shard"
+      },
+      "animations": {
+        "rotate": "animation.icicle.rotate"
+      },
+      "scripts": {
+        "animate": [
+          "rotate"
+        ]
+      },
+      "render_controllers": [ "controller.render.default" ]
+    }
+  }
+}

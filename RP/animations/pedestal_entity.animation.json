@@ -1,0 +1,38 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.pedestal_entity.rotate": {
+			"loop": true,
+			"animation_length": 4,
+			"blend_weight": "0.2",
+			"bones": {
+				"rightItem": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [0, -450, 0],
+						"2.0": [0, -887.5, 0],
+						"3.0": [0, -1347.5, 0],
+						"4.0": [0, -1797.5, 0]
+					}
+				}
+			}
+		},
+		"animation.pedestal_entity.float": {
+			"loop": true,
+			"animation_length": 2,
+			"blend_weight": "0.2",
+			"bones": {
+				"rightItem": {
+					"position": {
+						"0.0": [-20, 27, 0],
+						"1.0": [-20, 3, 0],
+						"2.0": [-20, 27, 0]
+					},
+					"rotation": {
+						"0.0": [-480, 0, 170]
+					}
+				}
+			}
+		}
+	}
+}

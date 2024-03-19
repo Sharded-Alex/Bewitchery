@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "bw:hold_item",
+			"materials": {
+				"default": "skeleton"
+			},
+			"textures": {
+				"default": "textures/blocks/invisible"
+			},
+			"geometry": {
+				"default": "geometry.pedestal_entity"
+			},
+			"animations": {
+			  "float": "animation.pedestal_entity.float",
+			  "rotate": "animation.pedestal_entity.rotate"
+			},
+      "scripts": {
+        "animate": [
+          "float",
+          "rotate"
+        ]
+      },
+      "render_controllers": [ "controller.render.default" ],
+			"enable_attachables":  true,
+			"held_item_ignores_lighting": false
+    }
+	}
+}
